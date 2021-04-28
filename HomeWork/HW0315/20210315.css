@@ -1,0 +1,232 @@
+html {
+    background-color: whitesmoke;
+}
+
+
+/*浮動列*/
+
+.topnav {
+    list-style: none;
+    text-align: right;
+    font-size: 12px;
+    font-family: "微軟正黑體";
+    position: fixed;
+    width: 100%;
+    top: 15px;
+    right: 0;
+    z-index: 2;
+    height: 30px;
+}
+
+.topnav li {
+    background-color: white;
+    color: dimgrey;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid dimgrey;
+    margin: 0 2px;
+    opacity: .7;
+}
+
+.topnav li:hover {
+    background-color: whitesmoke;
+}
+
+
+/*頭*/
+
+.top {
+    width: 100%;
+    height: 8px;
+    background-color: black;
+}
+
+.logo {
+    width: auto;
+    display: flex;
+    padding: 36px 25px 5px;
+}
+
+.logo img {
+    margin: 10px;
+    width: 380px;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 0;
+}
+
+
+/*選單*/
+
+.navlink {
+    font-size: 14px;
+    font-family: "微軟正黑體";
+    color: dimgrey;
+    list-style: none;
+    margin: 0 10%;
+    border-top: 1px solid lightgray;
+    border-bottom: 4px double lightgray;
+}
+
+.navlink nav {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 20px 15px;
+}
+
+nav>li {
+    margin: 10px auto;
+    padding: 10px;
+}
+
+
+/*身*/
+
+.TopPic {
+    width: 100%;
+    margin: 0 0 17px;
+}
+
+img {
+    width: 100%;
+}
+
+.div1 img {
+    margin: 5px 15px;
+    padding: 5px 10px;
+}
+
+.div1 {
+    width: 74.5%;
+    margin: 0 10%;
+    padding: 15px;
+}
+
+.buy1 {
+    margin: 0 10%;
+    display: flex;
+    padding: 15px;
+}
+
+.buy2 {
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 480px;
+    padding: 30px;
+    color: dimgrey;
+}
+
+.item3 {
+    width: auto;
+}
+
+.item div {
+    position: relative;
+    padding: 0;
+    height: auto;
+}
+
+.item3 div {
+    position: relative;
+    padding: 0;
+    height: auto;
+}
+
+.item2 {
+    background-color: black;
+    color: cornsilk;
+    font-weight: bolder;
+    opacity: 0;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.buy1 :hover .item2 {
+    opacity: .6;
+}
+
+.buy1 h3 {
+    margin: 0;
+    padding: 10px 0 0;
+    text-align: left;
+}
+
+.buy1 p {
+    padding: 2px 0;
+    text-align: left;
+}
+
+
+/*影片*/
+
+.v1 {
+    margin: 20px 5px;
+}
+
+.v2 {
+    margin: 20px 5px;
+}
+
+.v1 p {
+    text-align: center;
+}
+
+.v2 p {
+    text-align: center;
+}
+
+.v1 iframe {
+    width: 510px;
+    height: 280px;
+    padding: 2px 25px;
+}
+
+.v2 iframe {
+    width: 320px;
+    height: 180px;
+    padding: 2px 25px;
+}
+
+
+/*尾*/
+
+footer {
+    display: block;
+    width: auto;
+    text-align: center;
+    padding: 5%;
+    margin: 2% 0 11.5%;
+}
+
+footer div {
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+footer img {
+    margin: 0;
+    padding: 0;
+    width: 280px;
+}
+
+footer p {
+    font-size: 15px;
+    color: dimgrey;
+}
+
+footer a {
+    text-decoration: none;
+    color: dimgrey;
+}

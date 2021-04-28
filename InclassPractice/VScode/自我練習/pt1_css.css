@@ -1,0 +1,66 @@
+* {
+    /*重置設定*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: ghostwhite;
+    padding: 5px;
+}
+
+h1 {
+    color: cornflowerblue;
+    font-size: 40px;
+}
+
+nav {
+    background-color: cornflowerblue;
+    text-align: center;
+    font-size: 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    /*text-decoration文字不要有裝飾(原本有底線)*/
+    display: inline-block;
+    /*display 屬性是讓網頁設計師可以自由設定網頁元素的顯示類型*/
+    padding: 16px 20px;
+    /*padding 內距設定*/
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+nav a:hover {
+    /*hover 滑鼠停在上面的顯示效果*/
+    background-color: deepskyblue;
+}
+
+p {
+    color: dimgray;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 10px;
+    /*物件間的距離*/
+}
+
+div {
+    width: 400px;
+    border: 2px dashed lightsteelblue;
+    /*border邊框線 dashed為虛線*/
+    padding: 20px;
+    background-color: aliceblue;
+    margin: 5px;
+    /*物件間的距離*/
+}
+
+a {
+    text-decoration: none;
+    color: deeppink;
+}
+
+ul {
+    padding: 30px;
+    color: dimgray;
+}

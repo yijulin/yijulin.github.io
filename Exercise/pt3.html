@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <title>自我練習</title>
+    <link rel="stylesheet" href="ptCSS_TopNav.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            color: midnightblue;
+            padding: 10px;
+        }
+        
+        .day15_uli {
+            font-size: 0;
+        }
+        
+        .day15_uli li {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 5px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            position: relative;
+            /*要先定位後絕對位置才找的到*/
+        }
+        
+        .item4 {
+            position: relative;
+            color: red;
+            left: 110px;
+        }
+        
+        .item5 {
+            position: relative;
+            color: red;
+            left: -110px;
+        }
+        
+        .item7 {
+            color: red;
+            opacity: .5;
+            /*-opacity 設定半透明*/
+            position: relative;
+            /*relative 相對定位元素*/
+            left: 50px;
+            /*left要有先定位才會用*/
+            z-index: 1;
+            /*設定先後順序，0會在1後面所以item7會蓋上item8*/
+        }
+        
+        .item8 {
+            position: relative;
+            /*當兩個物件都有定位時兩物件有可能會發生重疊(具有先後順序)，而有定位的物件會覆蓋沒有設定的物件*/
+        }
+        
+        .day17_div {
+            border: 2px dashed lightsteelblue;
+            padding: 0 0;
+            background-color: lightpink;
+            opacity: .7;
+            width: 30px;
+            height: 30px;
+            margin: 0 0;
+            position: absolute;
+            /*absolute 絕對位置*/
+            right: -5px;
+            top: -5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!--<nav> 區塊中的內容是此網站或網頁的主要導覽連結-->
+        <ul>
+            <li><a href="pt0_main.html">首頁</a></li>
+            <li style="background-color: deepskyblue;">金魚練習
+                <ul>
+                    <li><a href="pt1.html">金魚筆記集</a></li>
+                    <li><a href="pt2.html">排版練習</a></li>
+                    <li><a href="pt3.html">定位練習</a></li>
+                    <li><a href="pt4.html">稀飯版練習</a></li>
+                    <li><a href="pt5.html">網頁動畫練習</a></li>
+                </ul>
+            </li>
+            <li><a href="">網頁筆記</a></li>
+            <li>課堂筆記
+                <ul>
+                    <li><a href="nt01.html">加速開發的技巧們</a></li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+    <h1 style="color: cornflowerblue;
+    font-size: 40px;
+    padding: 10px;">定位練習</h1>
+
+    <p>Relative 相對定位(藍框) 偏移顯示</p>
+    <p>Absolute 絕對定位(粉紅框)</p>
+    <ul class="day15_uli">
+        <!--用「ul>li.ithem${$}*20」產生的-->
+        <li class="item1">
+            <div class="day17_div"> x</div>
+            1</li>
+        <li class="item2">
+            <div class="day17_div"> x</div>2</li>
+        <li class="item3">
+            <div class="day17_div"> x</div>3</li>
+        <li class="item4">
+            <div class="day17_div"> x</div>4交換了</li>
+        <li class="item5">
+            <div class="day17_div"> x</div>5交換了</li>
+        <li class="item6">
+            <div class="day17_div"> x</div>6</li>
+        <li class="item7">
+            <div class="day17_div"> x</div>7偏移</li>
+        <li class="item8">
+            <div class="day17_div"> x</div>8</li>
+        <li class="item9">
+            <div class="day17_div"> x</div>9</li>
+        <li class="item10">
+            <div class="day17_div"> x</div>10</li>
+        <li class="item11">
+            <div class="day17_div"> x</div>11</li>
+        <li class="item12">
+            <div class="day17_div"> x</div>12</li>
+        <li class="item13">
+            <div class="day17_div"> x</div>13</li>
+        <li class="item14">
+            <div class="day17_div"> x</div>14</li>
+        <li class="item15">
+            <div class="day17_div"> x</div>15</li>
+        <li class="item16">
+            <div class="day17_div"> x</div>16</li>
+        <li class="item17">
+            <div class="day17_div"> x</div>17</li>
+        <li class="item18">
+            <div class="day17_div"> x</div>18</li>
+        <li class="item19">
+            <div class="day17_div"> x</div>19</li>
+        <li class="item20">
+            <div class="day17_div"> x</div>20</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjqL6Crfwt5nI0I7mr-kJdA6c5ymJIWQ0&callback=initMap&libraries=&v=weekly"
+        async></script>
+    <script>
+        const mapURL = "https://raw.githubusercontent.com/taihochan/JsonData/main/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json";
+        const dataURL = "https://raw.githubusercontent.com/taihochan/JsonData/main/%E5%8F%B0%E7%81%A3%E8%87%AA%E4%BE%86%E6%B0%B4%E7%94%A8%E9%87%8F.json";
+        let map;
+
+        let data = [];
+        let mapdata = [];
+        let mapmark;
+        let xhr_data = new XMLHttpRequest();
+        let xhr_map = new XMLHttpRequest();
+
+        window.onload = function () {
+
+            xhr_map.onload = function () {
+                mapdata = JSON.parse(this.responseText);
+            };
+            xhr_map.open('GET', mapURL);
+            xhr_map.send();
+
+            xhr_data.onload = function () {
+                data = Object.values(JSON.parse(this.responseText).TaiwanWaterExchangingData.StatisticofWaterResourcesClass).find(x => x.TheConsumptionOfWater).TheConsumptionOfWater;
+                //???有這麼長?
+                //console.log(data);
+            };
+            xhr_data.open('GET', dataURL);
+            xhr_data.send();
+
+
+
+
+            //setTimeout(initMap, 1000);
+        }
+
+
+        function initMap() {
+
+            setTimeout(creatMark, 1000);
+            function creatMark() {
+                const CHU = { lat: 24.760802677643383, lng: 120.95313970056509 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 8,
+                    center: CHU,
+                });
+
+                // new google.maps.Marker({
+                //     position: CHU,
+                //     map,
+                //     title: "CHUUUUUU",
+                // });
+
+                console.log(data);
+                mapdata.forEach((places, index) => {
+
+                    let waterdata = data.find(x => x.Town == places.District);
+                    let waterText = "";
+                    if (waterdata != undefined) {
+                        let Year, Month, Water;
+                        Year = waterdata.Year;
+                        Month = waterdata.Month;
+                        Water = waterdata.TheDailyDomesticConsumptionOfWaterPerPerson;
+                        waterText = `${Year}年${Month}月 人均日常用水量為${Water}`;
+                    } else {
+                        waterText = "無用水量資料"
+                    }
+
+
+                    //console.log(waterdata);
+                    //console.log(data[index].Town);
+                    mapmark = {
+                        lat: places.Lat,
+                        lng: places.Lng
+                    };
+                    new google.maps.Marker({
+                        position: mapmark,
+                        map,
+                        title: `${places.City},${places.District} ${waterText}`,
+                    });
+                    //console.log(mapmark);
+                });
+            }
+
+            //console.log(mapmark);
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

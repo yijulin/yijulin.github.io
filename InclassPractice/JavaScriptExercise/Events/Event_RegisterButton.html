@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button1" onclick="Event1(event,this)">在HTML attribute指定事件處理器</button>
+    <button id="button2">用JS在HTML元素屬性設定事件</button>
+    <button id="button3">用addEventListener()方法註冊</button>
+
+    <div id="result"></div>
+
+
+    <script>
+        window.onload = function () {
+            let h1 = document.createElement("h1");
+            h1.innerHTML = "123456";
+            document.body.appendChild(h1);
+            debugger;
+        }
+        function Event1(event, element) {
+            alert(`${event.constructor.name}事件類型的${event.type}事件`);
+            alert(element.innerHTML);
+        }
+        document.getElementById("button2").onclick = function (event) {
+            alert(`${event.constructor.name}事件類型的${event.type}事件`);
+        }
+        document.getElementById("button3").addEventListener('click', function (event) {
+            alert(`${event.constructor.name}事件類型的${event.type}事件`);
+        });
+        document.getElementById("button3").addEventListener('mousedown', moused);
+        function moused() {
+            alert("Mousedown");
+        }
+    </script>
+</body>
+
+</html>

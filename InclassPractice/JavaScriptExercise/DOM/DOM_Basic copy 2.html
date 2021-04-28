@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let h1 = document.createElement("h1");
+        h1.innerHTML = "DOM";
+        document.body.append(h1);
+        let thep = ["123", "456", "789", "000"]
+        let theli = ["A", "B", "C"]
+        window.onload = function () {
+            dothree(thep, "div", "p");
+            dothree(theli, "ul", "li");
+        }
+        let dothree = function (list, father, child) {
+            let f = document.createElement(father);
+
+            list.forEach((item, index) => {
+                let cd = document.createElement(child);
+                cd.innerHTML = item;
+                f.appendChild(cd);
+            });
+
+            document.body.append(f);
+        }
+
+
+    </script>
+</body>
+
+</html>

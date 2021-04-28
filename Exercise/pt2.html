@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <title>自我練習</title>
+
+    <link rel="stylesheet" href="ptCSS_TopNav.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            color: midnightblue;
+            padding: 10px;
+        }
+        
+        div {
+            border: 1px dashed lightsteelblue;
+            margin: 10px;
+            background-color: aliceblue;
+        }
+        
+        .ooxx {
+            /*用來撐開div的*/
+            clear: both;
+            height: 0px;
+            border: none;
+            background-color: cyan;
+        }
+        
+        .day8_div1 {
+            width: 600px;
+            background-color: cyan;
+            border: 1px solid red;
+            margin: auto;
+        }
+        
+        .day8_div2 {
+            width: 158px;
+            margin: 10px;
+            padding: 10px;
+            background-color: aquamarine;
+            float: left;
+            border: 1px solid blue;
+            /*box-sizing: border-box;*/
+        }
+        
+        .day9_img {
+            margin: 10px;
+            /*margin 物件間的距離*/
+            width: 250px;
+            float: left;
+        }
+        
+        .day9_div1 {
+            width: 970px;
+            background-color: cyan;
+            margin: auto;
+        }
+        
+        .day9_div2 {
+            width: 280px;
+            margin: 10px;
+            background-color: aquamarine;
+            float: left;
+            padding: 10px;
+        }
+        
+        .day9_div2 img {
+            width: 100%;
+        }
+        
+        .day11_div2 {
+            width: 280px;
+            margin: 10px;
+            background-color: aquamarine;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+            /*box-sizing更改原本設定的寬高大小*/
+            /*border-box包括內容（content），內邊距（padding）和邊框（border）*/
+            /*content-box只包括內容本身的寬和高*/
+        }
+        
+        .day13_div1 {
+            width: 960px;
+            margin: auto;
+            display: flex;
+            /*display 屬性是讓網頁設計師可以自由設定網頁元素的顯示類型*/
+            /*flex 為了適應不同螢幕尺寸和顯示設備而生的佈局模式*/
+        }
+        
+        .day13_div2 {
+            width: 100%;
+            margin: 0 10px 10px;
+        }
+        
+        .day13_div2 img {
+            width: 100%;
+            vertical-align: top;
+        }
+        
+        .day16_div1 {
+            width: 960px;
+            margin: auto;
+            display: flex;
+        }
+        
+        .day16_div2 {
+            width: 300px;
+            margin: 10px;
+            border: 1px solid #aaa;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .day16_div2 img {
+            width: 100%;
+        }
+        
+        .day16_div2 .day16_tab {
+            background-color: chartreuse;
+            color: #000;
+            padding: 6px 10px;
+            position: absolute;
+            top: -4px;
+            left: -4px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!--<nav> 區塊中的內容是此網站或網頁的主要導覽連結-->
+        <ul>
+            <li><a href="pt0_main.html">首頁</a></li>
+            <li style="background-color: deepskyblue;">金魚練習
+                <ul>
+                    <li><a href="pt1.html">金魚筆記集</a></li>
+                    <li><a href="pt2.html">排版練習</a></li>
+                    <li><a href="pt3.html">定位練習</a></li>
+                    <li><a href="pt4.html">稀飯版練習</a></li>
+                    <li><a href="pt5.html">網頁動畫練習</a></li>
+                </ul>
+            </li>
+            <li><a href="">網頁筆記</a></li>
+            <li>課堂筆記
+                <ul>
+                    <li><a href="nt01.html">加速開發的技巧們</a></li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+    <h1 style="color: cornflowerblue;
+    font-size: 40px;
+    padding: 10px;">排版練習</h1>
+    <div>
+        <h2>第八天 區塊尺寸計算</h2>
+        <div class="day8_div1">
+            <div class="day8_div2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia enim deserunt sit accusantium suscipit fugiat odit corporis, corrupti sunt autem, atque ipsum consectetur! Nemo vel minima deleniti eligendi nulla odit?</div>
+            <div class="day8_div2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia enim deserunt sit accusantium suscipit fugiat odit corporis, corrupti sunt autem, atque ipsum consectetur! Nemo vel minima deleniti eligendi nulla odit?</div>
+            <div class="day8_div2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia enim deserunt sit accusantium suscipit fugiat odit corporis, corrupti sunt autem, atque ipsum consectetur! Nemo vel minima deleniti eligendi nulla odit?</div>
+            <div class="ooxx"></div>
+        </div>
+    </div>
+
+    <div>
+        <h2>第九天 Float浮動</h2>
+        <p>這是一般的div 如果文字在有float的區塊之前是不會被環繞的!</p>
+        <img class="day9_img" src="https://fakeimg.pl/100/">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium soluta iste, quos sunt velit alias blanditiis eligendi ducimus, rem voluptatibus quo vero vitae consequatur maxime reiciendis porro quidem? Laboriosam, sequi. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Corporis voluptatem quisquam tenetur delectus, iusto eveniet reprehenderit dolorum quo tempore sunt ratione eos fugit dicta, molestias, quae numquam nostrum. Repellendus, ab!
+        </p>
+        <div class="ooxx"></div>
+        <div class="day9_div1">
+
+            <div class="day9_div2">
+                <img src="https://fakeimg.pl/300/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil. Lorem ipsum dolor sit amet consectetur adipisicingelit.
+                </p>
+            </div>
+
+            <div class="day9_div2">
+                <img src="https://fakeimg.pl/300/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil.</p>
+            </div>
+
+            <div class="day9_div2">
+                <img src="https://fakeimg.pl/300/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil.</p>
+            </div>
+            <div class="ooxx"></div>
+        </div>
+    </div>
+
+    <div>
+        <h2>第十一天 box-sizing</h2>
+        <div class="day9_div1">
+
+            <div class="day11_div2">
+                <img src="https://fakeimg.pl/250/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil.</p>
+            </div>
+
+            <div class="day11_div2">
+                <img src="https://fakeimg.pl/250/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil.</p>
+            </div>
+
+            <div class="day11_div2">
+                <img src="https://fakeimg.pl/250/">
+                <h3>123</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero natus molestias blanditiis pariatur modi est optio et ducimus eum maxime quisquam iusto, ad hic facilis! Velit quas sit porro nihil.</p>
+            </div>
+            <div class="ooxx"></div>
+        </div>
+    </div>
+
+    <div>
+        <h2>第十三天 flex排版</h2>
+
+        <div class="day13_div1">
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random1" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis commodi non autem dolor aliquam nihil. Dolor architecto rerum iste delectus magni rem officia, odit debitis nostrum, molestias omnis. Quaerat, rem!</p>
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random2" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis commodi non autem dolor aliquam nihil. Dolor architecto rerum iste delectus magni rem officia, odit debitis nostrum, molestias omnis. Quaerat, rem!</p>
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random3" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis commodi non autem dolor aliquam nihil. Dolor architecto rerum iste delectus magni rem officia, odit debitis nostrum, molestias omnis. Quaerat, rem!</p>
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random4" alt="">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis commodi non autem dolor aliquam nihil. Dolor architecto rerum iste delectus magni rem officia, odit debitis nostrum, molestias omnis. Quaerat, rem!</p>
+            </div>
+        </div>
+        <div class="day13_div1">
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random5" alt="">
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random6" alt="">
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random7" alt="">
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random8" alt="">
+            </div>
+            <div class="day13_div2">
+                <img src="https://picsum.photos/300/200/?random9" alt="">
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>第十六天 相對&絕對定位</h2>
+        <div class="day16_div1">
+            <div class="day16_div2">
+                <div class="day16_tab">hot</div>
+                <img src="https://picsum.photos/300/200/?random1" alt="">
+                <h2>title</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora modi placeat harum quis consequatur. Assumenda alias deleniti repellat voluptates aliquam saepe ut, totam nobis corporis dolorum voluptatum iste aliquid commodi!</p>
+            </div>
+            <div class="day16_div2">
+                <div class="day16_tab">hot</div>
+                <img src="https://picsum.photos/300/200/?random2" alt="">
+                <h2>title</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora modi placeat harum quis consequatur. Assumenda alias deleniti repellat voluptates aliquam saepe ut, totam nobis corporis dolorum voluptatum iste aliquid commodi!</p>
+            </div>
+            <div class="day16_div2">
+                <div class="day16_tab">hot</div>
+                <img src="https://picsum.photos/300/200/?random3" alt="">
+                <h2>title</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora modi placeat harum quis consequatur. Assumenda alias deleniti repellat voluptates aliquam saepe ut, totam nobis corporis dolorum voluptatum iste aliquid commodi!</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+[
+    {
+        "category": "iPhone",
+        "type": "iPhone11",
+        "colors": [
+            {
+                "color": "white",
+                "chinese": "白色"
+            },
+            {
+                "color": "black",
+                "chinese": "黑色"
+            },
+            {
+                "color": "green",
+                "chinese": "綠色"
+            },
+            {
+                "color": "yellow",
+                "chinese": "黃色"
+            },
+            {
+                "color": "purple",
+                "chinese": "紫色"
+            },
+            {
+                "color": "red",
+                "chinese": "紅色"
+            }
+        ],
+        "capacitys": [
+            {
+                "capacity": 64,
+                "price": 19900
+            },
+            {
+                "capacity": 128,
+                "price": 21500
+            },
+            {
+                "capacity": 256,
+                "price": 25000
+            }
+        ]
+    },
+    {
+        "category": "iPad",
+        "type": "iPad",
+        "colors": [
+            {
+                "color": "spacegray",
+                "chinese": "太空灰色"
+            },
+            {
+                "color": "silver",
+                "chinese": "銀色"
+            },
+            {
+                "color": "gold",
+                "chinese": "金色"
+            }
+        ],
+        "capacitys": [
+            {
+                "capacity": 32,
+                "price": 10500
+            },
+            {
+                "capacity": 128,
+                "price": 13500
+            }
+        ]
+    },
+    {
+        "category": "Mac",
+        "type": "MacBook13",
+        "colors": [
+            {
+                "color": "spacegray",
+                "chinese": "太空灰色"
+            },
+            {
+                "color": "silver",
+                "chinese": "銀色"
+            }
+        ],
+        "capacitys": [
+            {
+                "capacity": 256,
+                "price": 39900
+            },
+            {
+                "capacity": 512,
+                "price": 45900
+            }
+        ]
+    }
+]

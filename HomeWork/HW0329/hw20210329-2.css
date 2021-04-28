@@ -1,0 +1,47 @@
+.pic-box {
+    z-index: -1;
+}
+
+.px-200px {
+    padding: 0 200px;
+}
+
+.mx-200px {
+    margin: 0 200px;
+}
+
+.fs-12px {
+    font-size: 12px;
+}
+
+.fs-14px {
+    font-size: 14px;
+}
+
+.fs-80px {
+    font-size: 80px;
+}
+
+.w-40px {
+    width: 200px;
+}
+
+.h-250px {
+    height: 250px;
+}
+
+.middle-box {
+    background-color: rgba(4, 62, 110, 0.9);
+}
+
+.idea::before {
+    content: "/*";
+}
+
+.idea::after {
+    content: "*/";
+}
+
+.ul-disc {
+    list-style: disc;
+}

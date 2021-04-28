@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <title>自我練習</title>
+    <link rel="stylesheet" href="pt1_css.css">
+    <style>
+        ul {
+            font-size: 0;
+        }
+        
+        li {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 5px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            position: relative;
+            /*要先定位後絕對位置才找的到*/
+        }
+        
+        .item4 {
+            position: relative;
+            color: red;
+            left: 110px;
+        }
+        
+        .item5 {
+            position: relative;
+            color: red;
+            left: -110px;
+        }
+        
+        .item7 {
+            background-color: lightcoral;
+            opacity: .5;
+            /*-opacity 設定半透明*/
+            position: relative;
+            /*relative 相對定位元素*/
+            left: 50px;
+            /*left要有先定位才會用*/
+            z-index: 1;
+            /*設定先後順序，0會在1後面所以item7會蓋上item8*/
+        }
+        
+        .item8 {
+            position: relative;
+            /*當兩個物件都有定位時兩物件有可能會發生重疊(具有先後順序)，而有定位的物件會覆蓋沒有設定的物件*/
+        }
+        
+        .xx {
+            border: 2px dashed lightsteelblue;
+            padding: 0 0;
+            background-color: lightpink;
+            opacity: .7;
+            width: 30px;
+            height: 30px;
+            margin: 0 0;
+            position: absolute;
+            /*absolute 絕對位置*/
+            right: -5px;
+            top: -5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="pt1.html">第一頁</a>
+        <a href="pt2.html">第二頁</a>
+        <a href="pt3.html" style="background-color: deepskyblue;">第三頁</a>
+        <a href="pt4.html">第四頁</a>
+    </nav>
+    <h1>頁面三</h1>
+    <p>Relative 定位 相對定位 偏移顯示</p>
+    <ul>
+        <!--用「ul>li.ithem${$}*20」產生的-->
+        <li class="item1">
+            <div class="xx"> x</div>
+            1</li>
+        <li class="item2">
+            <div class="xx"> x</div>2</li>
+        <li class="item3">
+            <div class="xx"> x</div>3</li>
+        <li class="item4">
+            <div class="xx"> x</div>4</li>
+        <li class="item5">
+            <div class="xx"> x</div>5</li>
+        <li class="item6">
+            <div class="xx"> x</div>6</li>
+        <li class="item7">
+            <div class="xx"> x</div>7</li>
+        <li class="item8">
+            <div class="xx"> x</div>8</li>
+        <li class="item9">
+            <div class="xx"> x</div>9</li>
+        <li class="item10">
+            <div class="xx"> x</div>10</li>
+        <li class="item11">
+            <div class="xx"> x</div>11</li>
+        <li class="item12">
+            <div class="xx"> x</div>12</li>
+        <li class="item13">
+            <div class="xx"> x</div>13</li>
+        <li class="item14">
+            <div class="xx"> x</div>14</li>
+        <li class="item15">
+            <div class="xx"> x</div>15</li>
+        <li class="item16">
+            <div class="xx"> x</div>16</li>
+        <li class="item17">
+            <div class="xx"> x</div>17</li>
+        <li class="item18">
+            <div class="xx"> x</div>18</li>
+        <li class="item19">
+            <div class="xx"> x</div>19</li>
+        <li class="item20">
+            <div class="xx"> x</div>20</li>
+    </ul>
+</body>
+
+</html>
