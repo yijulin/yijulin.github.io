@@ -140,32 +140,33 @@
         }
 
         document.querySelector("#start").onclick = function () {
-            let runtime = rank * 5;
-            let movewayList = [0, 1, 2, 3];
-            let zeroindex = puzno.findIndex((no) => no == 0);
-            if (zeroindex <= rank) {
-                movewayList.remove(3); //不能走上 -rank
-                //console.log(`${zeroindex}<=${rank}  ${movewayList}`);
-            }
-            if (zeroindex >= (rank * (rank - 1))) {
-                movewayList.remove(2); //不能走下 +rank
-                //console.log(`${zeroindex}>=${(rank * (rank - 1))}  ${movewayList}`);
-            }
-            if (zeroindex % rank == 0) {
-                movewayList.remove(1);//不能走左 -1
-                //console.log(`${zeroindex}% ${rank} == 0  ${movewayList}`);
-            }
-            if (zeroindex % rank == (rank - 1)) {
-                movewayList.remove(0);//不能走右 +1
-                //console.log(`${zeroindex}% (rank)== ${rank - 1}  ${movewayList}`);
-            }
-            //console.log(zeroindex + "," + movewayList);
+            let runtime = rank * rank * 5;
+
             while (runtime > 0) {
+                let movewayList = [0, 1, 2, 3];
+                let zeroindex = puzno.findIndex((no) => no == 0);
+                if (zeroindex <= rank) {
+                    movewayList.remove(3); //不能走上 -rank
+                    //console.log(`${zeroindex}<=${rank}  ${movewayList}`);
+                }
+                if (zeroindex >= (rank * (rank - 1))) {
+                    movewayList.remove(2); //不能走下 +rank
+                    //console.log(`${zeroindex}>=${(rank * (rank - 1))}  ${movewayList}`);
+                }
+                if (zeroindex % rank == 0) {
+                    movewayList.remove(1);//不能走左 -1
+                    //console.log(`${zeroindex}% ${rank} == 0  ${movewayList}`);
+                }
+                if (zeroindex % rank == (rank - 1)) {
+                    movewayList.remove(0);//不能走右 +1
+                    //console.log(`${zeroindex}% (rank)== ${rank - 1}  ${movewayList}`);
+                }
+                //console.log(zeroindex + "," + movewayList);
                 let runway = movewayList[Math.floor(Math.random() * movewayList.length)];
                 let zero = puzno.findIndex((no) => no == 0);
                 //console.log(`${runway} = ${puzno[zeroindex]}`);
                 console.log(`runway = ${runway}, zero=${zero}`);
-                //debugger;
+
                 switch (runway) {
                     case 0: //走右 +1
                         puzno[zero] = puzno[zero + 1];
@@ -185,8 +186,10 @@
                         break;
                     default: console.log("ERROR runway");
                 }
+                debugger;
+                creatPuzzle();
                 runtime--;
-                setTimeout(creatPuzzle, 5000);
+
             }
             // creatPuzzle();
         }
