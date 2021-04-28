@@ -159,13 +159,13 @@
                 button.setAttribute('class', ' btn btn-light d-flex flex-column align-items-center col-5 py-3 m-2')
 
                 button.onclick = function () {
-                    pic.innerHTML = `'<img src="img/${type}-${colors.color}.png" class="w-100">'`;
+                    pic.innerHTML = `'<img src="img/${type}-${colors.color.toLowerCase()}.png" class="w-100">'`;
 
                 }
 
                 let btn_img = document.createElement("img");
                 btn_img.setAttribute('class', 'd-block wh-50px rounded-circle btn-line-height text-transparent');
-                btn_img.src = `img/${colors.color}.png`;
+                btn_img.src = `img/${colors.color.toLowerCase()}.png`;
 
                 let btn_p = document.createElement("p");
                 btn_p.setAttribute('class', 'py-2');
