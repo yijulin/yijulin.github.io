@@ -127,8 +127,6 @@
                 puz.setAttribute('style', `background-image: url(${picsrc}) ; `);
                 //background-position: left ${100 / rank * left}% top ${100 / rank * top}%;
 
-
-                //puz.setAttribute('style', `background-position: left ${100 / rank * left}% top ${100 / rank * top}%`);
                 puz.innerHTML = no;
                 puzzleBox.appendChild(puz);
                 if (no > 0) {
@@ -159,6 +157,7 @@
         document.querySelector("#start").onclick = function () {
             let runtime = rank * rank * 5;
             path.push(JSON.stringify(puzno));
+            let previos; //上一次的動作 避免重複動作
             while (runtime > 0) {
 
                 let movewayList = [0, 1, 2, 3];
@@ -179,12 +178,22 @@
                     movewayList.remove(0);//不能走右 +1
                     //console.log(`${zeroindex}% (rank)== ${rank - 1}  ${movewayList}`);
                 }
+                //避免回到上一步
+                switch (previos) {
+                    case 0: movewayList.remove(1); break;
+                    case 1: movewayList.remove(0); break;
+                    case 2: movewayList.remove(3); break;
+                    case 3: movewayList.remove(2); break;
+                    default: ;
+                }
+
+                console.log(previos + "；" + movewayList);
                 //console.log(zeroindex + "," + movewayList);
                 let runway = movewayList[Math.floor(Math.random() * movewayList.length)];
                 let zero = puzno.findIndex((no) => no == 0);
                 //console.log(`${runway} = ${puzno[zeroindex]}`);
                 //console.log(`runway = ${runway}, zero=${zero}`);
-
+                previos = runway;
                 switch (runway) {
                     case 0: //走右 +1
                         puzno[zero] = puzno[zero + 1];
@@ -226,10 +235,6 @@
                     path = [];
                 }
             }, 100);
-
-
-
-
         }
 
 
