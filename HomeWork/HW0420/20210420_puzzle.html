@@ -28,7 +28,6 @@
 
         .puz.puzpic {
             cursor: pointer;
-            background-image: url("https://picsum.photos/id/684/600/600");
         }
 
         .puz:not(.puzpic) {
@@ -51,6 +50,7 @@
                 <button class="btn btn-dark">上傳圖片</button>
                 <button class="btn btn-success" id="start">開始拼圖</button>
                 <button class="btn btn-primary" id="reset">重置拼圖</button>
+                <button class="btn btn-warning" id="auto">自動拼圖</button>
             </div>
 
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -93,10 +93,13 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
     <script>
+        let path = [];
         let rankID = "R2";
         let rank = 2;
         let picrand = 684;
-        let picsrc = `https://picsum.photos/id/${picrand}/600/600`;
+        let picw = (document.querySelector(".pictureBox").clientWidth) - 36;
+        //console.dir(picw);
+        let picsrc = `https://picsum.photos/id/${picrand}/${picw}/${picw}`;
         window.onload = function () {
             rankChoose("R1");
         }
@@ -105,14 +108,27 @@
         document.querySelector(".pictureBox>img").src = picsrc;
 
         /*創建並顯示拼圖格*/
-        function creatPuzzle() {
+        function creatPuzzle(puzlist) {
             puzzleBox.innerHTML = '';
             //console.log(puzno);
-            puzno.forEach((no, index) => {
+            let left = 0;
+            let top = -1;
+            puzlist.forEach((no, index) => {
+                if (no % rank == (rank - 1)) {
+                    top++;
+                    left = 0;
+                } else {
+                    left++;
+                }
                 let puz = document.createElement("div");
                 //console.log(`rank:${rank}, col=${12 / rank}`);
                 puz.setAttribute('id', no);
                 puz.setAttribute('class', `puz col-${12 / rank}  `);
+                puz.setAttribute('style', `background-image: url(${picsrc}) ; `);
+                //background-position: left ${100 / rank * left}% top ${100 / rank * top}%;
+
+
+                //puz.setAttribute('style', `background-position: left ${100 / rank * left}% top ${100 / rank * top}%`);
                 puz.innerHTML = no;
                 puzzleBox.appendChild(puz);
                 if (no > 0) {
@@ -125,9 +141,9 @@
                         //console.log(zeroindex);
                         if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || thisindex + 1 == zeroindex || thisindex - 1 == zeroindex) {
 
-                            puzno[zeroindex] = Number.parseInt(thisID);
-                            puzno[thisindex] = 0;
-                            creatPuzzle();
+                            puzlist[zeroindex] = Number.parseInt(thisID);
+                            puzlist[thisindex] = 0;
+                            creatPuzzle(puzno);
                         } else {
                             alert("空格不相鄰，無法移動");
                         }
@@ -136,13 +152,15 @@
                 }
 
             });
-            console.log(puzno);
+
+            //console.log(puzno);
         }
 
         document.querySelector("#start").onclick = function () {
             let runtime = rank * rank * 5;
-
+            path.push(JSON.stringify(puzno));
             while (runtime > 0) {
+
                 let movewayList = [0, 1, 2, 3];
                 let zeroindex = puzno.findIndex((no) => no == 0);
                 if (zeroindex <= rank) {
@@ -165,7 +183,7 @@
                 let runway = movewayList[Math.floor(Math.random() * movewayList.length)];
                 let zero = puzno.findIndex((no) => no == 0);
                 //console.log(`${runway} = ${puzno[zeroindex]}`);
-                console.log(`runway = ${runway}, zero=${zero}`);
+                //console.log(`runway = ${runway}, zero=${zero}`);
 
                 switch (runway) {
                     case 0: //走右 +1
@@ -186,13 +204,35 @@
                         break;
                     default: console.log("ERROR runway");
                 }
-                debugger;
-                creatPuzzle();
+
+                path.push(JSON.stringify(puzno));
                 runtime--;
 
             }
-            // creatPuzzle();
+            creatPuzzle(puzno);
         }
+        document.querySelector("#auto").onclick = function () {
+            path.reverse();
+            let i = 0;
+
+            let t = setInterval(function () {
+                puzno = JSON.parse(path[i]);
+                creatPuzzle(puzno);
+                i++;
+                console.log("OK");
+                if (i >= path.length) {
+                    clearInterval(t);
+                    console.log("stop" + i + "=" + path.length);
+                    path = [];
+                }
+            }, 100);
+
+
+
+
+        }
+
+
         document.querySelector("#reset").onclick = function () {
             rankChoose(rankID);
         }
@@ -219,12 +259,12 @@
                 default: console.log("ERROR rankID");
             }
             puzno = [];
-
+            path = [];
             for (let i = (rank * rank - 1); i >= 0; i--) {
                 puzno.push(i);
             }
             //console.log(puzno);
-            creatPuzzle();
+            creatPuzzle(puzno);
         }
 
 
