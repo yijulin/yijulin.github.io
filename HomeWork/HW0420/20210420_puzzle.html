@@ -102,6 +102,7 @@
         let picsrc = `https://picsum.photos/id/${picrand}/${picw}/${picw}`;
         window.onload = function () {
             rankChoose("R1");
+
         }
         let puzzleBox = document.querySelector(".puzzleBox");
         let puzno = [];
@@ -109,6 +110,7 @@
 
         /*創建並顯示拼圖格*/
         function creatPuzzle(puzlist) {
+
             puzzleBox.innerHTML = '';
             //console.log(puzno);
             let left = 0;
@@ -138,10 +140,10 @@
                         let zeroindex = puzno.findIndex((no) => no == 0);
                         //console.log(zeroindex);
                         if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || thisindex + 1 == zeroindex || thisindex - 1 == zeroindex) {
-
+                            path.push(JSON.stringify(puzno));
                             puzlist[zeroindex] = Number.parseInt(thisID);
                             puzlist[thisindex] = 0;
-                            path.push(JSON.stringify(puzno));
+
                             creatPuzzle(puzno);
                         } else {
                             alert("空格不相鄰，無法移動");
