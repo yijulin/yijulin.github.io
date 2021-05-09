@@ -43,20 +43,34 @@
             position: relative;
         }
 
-        .puzzleBox::before {
-            background-color: rgba(0, 0, 255, 0.397);
-            content: "";
-            display: block;
+        .tostart::before {
+            background-color: rgba(0, 0, 0, 0.397);
+            color: white;
+            content: "遊戲尚未開始";
+            font-size: 40px;
+            font-weight: bolder;
+            justify-content: center;
+            align-items: center;
+            display: flex;
             width: 100%;
             height: 100%;
             z-index: 1;
+        }
+
+        .px-32px {
+            padding: 0 32px 3px;
         }
     </style>
 </head>
 
 <body>
 
-
+    <!--待修改: 
+        1.換圖時流程怪
+        2.自動拼圖須修正
+        3.未做上傳圖片
+        4.視窗大小變更時拼圖大小須修正
+     -->
     <div class="container">
         <div class="bar d-flex justify-content-between my-3">
             <div class="">
@@ -92,8 +106,27 @@
             <div class="col-6 ">
                 <p class="fs-4 ">拼圖</p>
             </div>
-            <div class="col-6 d-flex justify-content-center order-1 px-4 ">
-                <div class="puzzleBox w-100 row ">
+            <div class="col-6 d-flex justify-content-center order-1 px-32px">
+                <div class="puzzleBox tostart w-100 row " id="puzzleBox">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">你贏了!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">紀錄成績</button>
                 </div>
             </div>
         </div>
@@ -108,6 +141,7 @@
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous"></script>
     <script>
+        let gamestart = false;
         let path = [];
         let rankID = "R2";
         let rank = 2;
@@ -121,6 +155,7 @@
         }
         let puzzleBox = document.querySelector(".puzzleBox");
         let puzno = [];
+        let theans = [];
         document.querySelector(".pictureBox>img").src = picsrc;
 
         /*創建並顯示拼圖格*/
@@ -201,10 +236,39 @@
             });
             console.log(puzno);
             console.log(path);
-            debugger;
+            //debugger;
+        }
+        Array.prototype.equals = function (getArray) {
+            if (this.length != getArray.length) return false;
+
+            for (var i = 0; i < getArray.length; i++) {
+                if (this[i] instanceof Array && getArray[i] instanceof Array) {
+                    if (!this[i].equals(getArray[i])) return false;
+                } else if (this[i] != getArray[i]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        function initialization() {
+            //初始化
+            document.querySelector("#start").setAttribute('class', 'btn btn-success');
+            document.querySelector("#reset").setAttribute('class', 'btn btn-primary disabled');
+            document.querySelector("#auto").setAttribute('class', 'btn btn-warning disabled');
+            document.querySelector("#puzzleBox").setAttribute('class', 'puzzleBox tostart w-100 row ');
         }
 
+        function removeClass(id, theclass) {
+            var classVal = document.getElementById(id).getAttribute("class");
+            classVal = classVal.replace(theclass, "");
+            document.getElementById(id).setAttribute("class", classVal);
+        }
         document.querySelector("#start").onclick = function () {
+            removeClass("reset", "disabled");
+            removeClass("auto", "disabled");
+            this.classList.add("disabled");
+            removeClass("puzzleBox", "tostart");
+
 
             let runtime = rank * rank * rank;
             path.push(JSON.stringify(puzno));
@@ -238,8 +302,10 @@
                 //console.log(puzno);
                 if (runtime < rank * 2 && zeroindex == (rank * rank - 1)) {
                     //確定在最右下停住
-                    console.log("stop");
+                    //console.log("stop");
+                    gamestart = true;
                     break;
+
                 }
                 let runway = movewayList[Math.floor(Math.random() * movewayList.length)];
                 previos = runway;
@@ -297,6 +363,7 @@
 
         document.querySelector("#change").onclick = function () {
             //換圖
+            initialization();
             startChange();
             function startChange() {
                 changePic()
@@ -338,6 +405,7 @@
 
         /* 選擇難度*/
         function rankChoose(id) {
+            initialization();
             rankID = id;
             switch (id) {
                 case "R1": rank = 3; break;
@@ -347,8 +415,10 @@
             }
             puzno = [];
             path = [];
+            theans = [];
             for (let i = (rank * rank - 1); i >= 0; i--) {
                 puzno.push(i);
+                theans.push(i);
             }
             path.push(JSON.stringify(puzno));
             //console.log(puzno);
@@ -379,6 +449,7 @@
                         }, 10 * t);
                     })(i)
                 }
+
             })
         }
         function moveY(id, y) {
@@ -386,6 +457,7 @@
             let target = parseInt(box.style.top, 10) + y;
             let time = 10;
             let perMove = y / time;
+
             return new Promise((resolve, reject) => {
                 for (let i = 1; i <= time; i++) {
                     (function (t) {
@@ -394,10 +466,14 @@
                             //console.log(parseInt(box.style.top, 10) + '  ' + i);
                             if (parseInt(box.style.top, 10) == target) {
                                 resolve("Y OK");
+                                if (puzno.equals(theans) && gamestart == true) {
+                                    alert("OK-2");
+                                }
                             }
                         }, 10 * t);
                     })(i)
                 }
+
             })
         }
     </script>
