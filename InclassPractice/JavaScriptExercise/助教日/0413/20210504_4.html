@@ -53,6 +53,8 @@
         <div class="btn-group">
             <button id="x-btn">X移動</button>
             <button id="y-btn">Y移動</button>
+            <button id="xx-btn">-X移動</button>
+            <button id="yy-btn">-Y移動</button>
         </div>
     </div>
 
@@ -72,18 +74,30 @@
                     console.log(res);
                 })
         })
+        document.getElementById("xx-btn").addEventListener('click', function () {
+            moveX('b1', -200)
+                .then(res => {
+                    console.log(res);
+                })
+        })
+        document.getElementById("yy-btn").addEventListener('click', function () {
+            moveY('b1', -200)
+                .then(res => {
+                    console.log(res);
+                })
+        })
 
         function moveX(id, x) {
             let box = document.getElementById(id);
             let target = parseInt(box.style.left, 10) + x;
-            let time = 100;
+            let time = 10;
             let perMove = x / time;
             return new Promise((resolve, reject) => {
                 for (let i = 1; i <= time; i++) {
                     (function (t) {
                         setTimeout(() => {
                             box.style.left = parseInt(box.style.left, 10) + perMove + 'px';
-                            console.log(parseInt(box.style.left, 10));
+                            console.log(parseInt(box.style.left, 10) + '  ' + i);
                             if (parseInt(box.style.left, 10) == target) {
                                 resolve("X OK");
                             }
@@ -95,7 +109,7 @@
         function moveY(id, y) {
             let box = document.getElementById(id);
             let target = parseInt(box.style.top, 10) + y;
-            let time = 100;
+            let time = 10;
             let perMove = y / time;
             return new Promise((resolve, reject) => {
                 for (let i = 1; i <= time; i++) {
@@ -111,6 +125,7 @@
                 }
             })
         }
+
     </script>
 
 </body>

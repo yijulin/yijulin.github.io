@@ -21,35 +21,21 @@
         }
 
         div .puz {
+            border: 3px solid white;
             text-align: center;
             font-size: 15px;
         }
 
         .puz.puzpic {
             cursor: pointer;
-            position: absolute;
-            background-blend-mode: multiply;
-
         }
 
         .puz:not(.puzpic) {
             visibility: hidden;
-
         }
 
         .puzzleBox {
-
             box-sizing: border-box;
-            position: relative;
-        }
-
-        .puzzleBox::before {
-            background-color: rgba(0, 0, 255, 0.397);
-            content: "";
-            display: block;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
         }
     </style>
 </head>
@@ -60,11 +46,11 @@
     <div class="container">
         <div class="bar d-flex justify-content-between my-3">
             <div class="">
-                <button class="btn btn-danger" id="change">換一張</button>
+                <button class="btn btn-danger">換一張</button>
                 <button class="btn btn-dark">上傳圖片</button>
                 <button class="btn btn-success" id="start">開始拼圖</button>
-                <button class="btn btn-primary disabled" id="reset">重置拼圖</button>
-                <button class="btn btn-warning disabled" id="auto">自動拼圖</button>
+                <button class="btn btn-primary" id="reset">重置拼圖</button>
+                <button class="btn btn-warning" id="auto">自動拼圖</button>
             </div>
 
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -84,28 +70,27 @@
             <div class="col-6 ">
                 <p class="fs-4">原圖</p>
             </div>
+
             <div class="col-6 d-flex flex-column align-items-center order-1 ">
                 <div class="pictureBox w-100 d-flex justify-content-center align-items-center">
                     <img>
                 </div>
             </div>
             <div class="col-6 ">
-                <p class="fs-4 ">拼圖</p>
+                <p class="fs-4">拼圖</p>
             </div>
-            <div class="col-6 d-flex justify-content-center order-1 px-4 ">
+            <div class="col-6 d-flex justify-content-center order-1">
                 <div class="puzzleBox w-100 row ">
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous"></script>
     <script>
         let path = [];
@@ -125,33 +110,30 @@
 
         /*創建並顯示拼圖格*/
         function creatPuzzle(puzlist) {
+
             puzzleBox.innerHTML = '';
             //console.log(puzno);
             let left = 0;
             let top = 0;
             puzlist.forEach((no, index) => {
-                let puz = document.createElement("div");
-                puz.setAttribute('id', no);
-                puz.setAttribute('class', `puz col-${12 / rank} `);
-                puz.setAttribute('style',
-                    `background-image: url(${picsrc});background-position:${top}px ${left}px ; 
-                    top:${-left}px;
-                    left:${-top}px; 
-                    width:${picw / rank - (rank + 1)}px;
-                    height:${picw / rank - (rank + 1)}px;`);
 
-                //console.log(top, left, no);
+                let puz = document.createElement("div");
+                //console.log(`rank:${rank}, col=${12 / rank}`);
+                puz.setAttribute('id', no);
+                puz.setAttribute('class', `puz col-${12 / rank}  `);
+                //puz.setAttribute('style', `background-image: url(${picsrc}) ; `);
+                puz.setAttribute('style', `background-image: url(${picsrc});background-position:${top}px  ${left}px ; `);
+                console.log(top, left, no);
                 if (no % rank == 0) {
-                    left -= picw / rank;
+                    left += -(picw / rank - (rank + 1));//-196
                     top = 0;
                 } else {
-                    top -= picw / rank;
+                    top += -(picw / rank - (rank + 1));
                 }
                 puz.innerHTML = no;
                 puzzleBox.appendChild(puz);
                 if (no > 0) {
                     puz.classList.add("puzpic");
-                    puz.classList.add("disabled");
                     puz.addEventListener('click', function () {
                         let thisID = event.currentTarget.id;
                         let thisindex = puzno.findIndex((no) => no == thisID);
@@ -162,68 +144,43 @@
                             path.push(JSON.stringify(puzno));
                             puzlist[zeroindex] = Number.parseInt(thisID);
                             puzlist[thisindex] = 0;
-                            if (thisindex + rank == zeroindex) {
-                                //往下
-                                moveY(thisID, (picw / rank))
-                                moveY(0, -(picw / rank))
 
-                            } else if (thisindex - rank == zeroindex) {
-                                //往上
-                                moveY(thisID, -(picw / rank))
-                                moveY(0, (picw / rank))
-
-                            } else if (thisindex + 1 == zeroindex) {
-                                //往右
-                                moveX(thisID, (picw / rank))
-                                moveX(0, -(picw / rank))
-
-                            } else if (thisindex - 1 == zeroindex) {//往左
-                                moveX(thisID, -(picw / rank))
-                                moveX(0, (picw / rank))
-                            }
-
+                            creatPuzzle(puzno);
+                        } else {
+                            alert("空格不相鄰，無法移動");
                         }
-                        else {
-                            let f = 0;
-                            let ftime = 2;//閃爍次數
-                            let Flashing = setInterval(function () {
-                                document.getElementById(thisID).style.backgroundColor = f % 2 == 0 ? "rgba(0, 0, 0, 0.3)" : "transparent";
-                                f++;
-                                if (f >= ftime * 2) {
-                                    clearInterval(Flashing);
-                                }
-                            }, 100);
-
-                        }
+                        //console.log(puzno.findIndex((no) => no == event.currentTarget.id) + "  OK" + event.currentTarget.id);
                     });
                 }
 
             });
+
             console.log(puzno);
-            console.log(path);
-            debugger;
         }
 
         document.querySelector("#start").onclick = function () {
-
-            let runtime = rank * rank * rank;
+            let runtime = rank * rank * 5;
             path.push(JSON.stringify(puzno));
             let previos; //上一次的動作 避免重複動作
-            let zeroindex = puzno.findIndex((no) => no == 0);
-            while (true) {
+            while (runtime > 0) {
+
                 let movewayList = [0, 1, 2, 3];
-                zeroindex = puzno.findIndex((no) => no == 0);
+                let zeroindex = puzno.findIndex((no) => no == 0);
                 if (zeroindex <= rank) {
-                    movewayList.remove(3); //不能走上 
+                    movewayList.remove(3); //不能走上 -rank
+                    //console.log(`${zeroindex}<=${rank}  ${movewayList}`);
                 }
                 if (zeroindex >= (rank * (rank - 1))) {
-                    movewayList.remove(2); //不能走下 
+                    movewayList.remove(2); //不能走下 +rank
+                    //console.log(`${zeroindex}>=${(rank * (rank - 1))}  ${movewayList}`);
                 }
                 if (zeroindex % rank == 0) {
-                    movewayList.remove(1);//不能走左 
+                    movewayList.remove(1);//不能走左 -1
+                    //console.log(`${zeroindex}% ${rank} == 0  ${movewayList}`);
                 }
                 if (zeroindex % rank == (rank - 1)) {
-                    movewayList.remove(0);//不能走右 
+                    movewayList.remove(0);//不能走右 +1
+                    //console.log(`${zeroindex}% (rank)== ${rank - 1}  ${movewayList}`);
                 }
                 //避免回到上一步
                 switch (previos) {
@@ -233,40 +190,30 @@
                     case 3: movewayList.remove(2); break;
                     default: ;
                 }
-                //console.log(previos + "；" + movewayList);
 
-                //console.log(puzno);
-                if (runtime < rank * 2 && zeroindex == (rank * rank - 1)) {
-                    //確定在最右下停住
-                    console.log("stop");
-                    break;
-                }
+                console.log(previos + "；" + movewayList);
+                //console.log(zeroindex + "," + movewayList);
                 let runway = movewayList[Math.floor(Math.random() * movewayList.length)];
+                let zero = puzno.findIndex((no) => no == 0);
+                //console.log(`${runway} = ${puzno[zeroindex]}`);
+                //console.log(`runway = ${runway}, zero=${zero}`);
                 previos = runway;
                 switch (runway) {
                     case 0: //走右 +1
-                        moveX(0, (picw / rank))
-                        moveX(puzno[zeroindex + 1], -(picw / rank))
-                        puzno[zeroindex] = puzno[zeroindex + 1];
-                        puzno[zeroindex + 1] = 0;
+                        puzno[zero] = puzno[zero + 1];
+                        puzno[zero + 1] = 0;
                         break;
                     case 1: //走左 -1
-                        moveX(0, -(picw / rank))
-                        moveX(puzno[zeroindex - 1], (picw / rank))
-                        puzno[zeroindex] = puzno[zeroindex - 1];
-                        puzno[zeroindex - 1] = 0;
+                        puzno[zero] = puzno[zero - 1];
+                        puzno[zero - 1] = 0;
                         break;
                     case 2:  //走下 +rank
-                        moveY(0, (picw / rank))
-                        moveY(puzno[zeroindex + rank], -(picw / rank))
-                        puzno[zeroindex] = puzno[zeroindex + rank];
-                        puzno[zeroindex + rank] = 0;
+                        puzno[zero] = puzno[zero + rank];
+                        puzno[zero + rank] = 0;
                         break;
                     case 3:  //走上 -rank
-                        moveY(0, -(picw / rank))
-                        moveY(puzno[zeroindex - rank], (picw / rank))
-                        puzno[zeroindex] = puzno[zeroindex - rank];
-                        puzno[zeroindex - rank] = 0;
+                        puzno[zero] = puzno[zero - rank];
+                        puzno[zero - rank] = 0;
                         break;
                     default: console.log("ERROR runway");
                 }
@@ -275,7 +222,7 @@
                 runtime--;
 
             }
-            //creatPuzzle(puzno);
+            creatPuzzle(puzno);
         }
         document.querySelector("#auto").onclick = function () {
             path.reverse();
@@ -294,31 +241,6 @@
             }, 100);
         }
 
-
-        document.querySelector("#change").onclick = function () {
-            //換圖
-            startChange();
-            function startChange() {
-                changePic()
-                    .then(function (res) {
-                        document.querySelector(".pictureBox>img").src = picsrc;
-                        rankChoose(rankID);
-                        //console.log(res);
-                    })
-                    .catch(function (err) {
-
-                        startChange();
-                        console.log(err);
-                    })
-            }
-            function changePic() {
-                //亂數圖片
-                picrand = Math.floor(Math.random() * 684);;
-                //console.log(picrand);
-                picsrc = `https://picsum.photos/id/${picrand}/${picw}/${picw}`;
-                return axios.get(picsrc);
-            }
-        }
 
         document.querySelector("#reset").onclick = function () {
             rankChoose(rankID);
@@ -355,51 +277,13 @@
             creatPuzzle(puzno);
         }
 
+
         Array.prototype.remove = function (val) {
             var index = this.indexOf(val);
             if (index > -1) {
                 this.splice(index, 1);
             }
         };
-
-        function moveX(id, x) {
-            let box = document.getElementById(id);
-            let target = parseInt(box.style.left, 10) + x;
-            let time = 10;
-            let perMove = x / time;
-            return new Promise((resolve, reject) => {
-                for (let i = 1; i <= time; i++) {
-                    (function (t) {
-                        setTimeout(() => {
-                            box.style.left = parseInt(box.style.left, 10) + perMove + 'px';
-                            //console.log(parseInt(box.style.left, 10));
-                            if (parseInt(box.style.left, 10) == target) {
-                                resolve("X OK");
-                            }
-                        }, 10 * t);
-                    })(i)
-                }
-            })
-        }
-        function moveY(id, y) {
-            let box = document.getElementById(id);
-            let target = parseInt(box.style.top, 10) + y;
-            let time = 10;
-            let perMove = y / time;
-            return new Promise((resolve, reject) => {
-                for (let i = 1; i <= time; i++) {
-                    (function (t) {
-                        setTimeout(() => {
-                            box.style.top = parseInt(box.style.top, 10) + perMove + 'px';
-                            //console.log(parseInt(box.style.top, 10) + '  ' + i);
-                            if (parseInt(box.style.top, 10) == target) {
-                                resolve("Y OK");
-                            }
-                        }, 10 * t);
-                    })(i)
-                }
-            })
-        }
     </script>
 </body>
 
