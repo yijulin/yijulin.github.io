@@ -477,7 +477,7 @@
                         let zeroindex = puzno.findIndex((no) => no == 0);//ID為0的陣列位置
 
                         /*可移動的條件*/
-                        if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || thisindex + 1 == zeroindex || thisindex - 1 == zeroindex) {
+                        if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || (thisindex + 1 == zeroindex && zeroindex % rank != 0) || (thisindex - 1 == zeroindex && zeroindex % rank != (rank - 1))) {
                             /*陣列中交換位置*/
                             puzlist[zeroindex] = Number.parseInt(thisID);
                             puzlist[thisindex] = 0;
