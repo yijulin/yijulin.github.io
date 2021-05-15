@@ -124,6 +124,10 @@
         1.上傳圖片大小裁切
         2.視窗大小變更時拼圖大小須修正
         3.特定條件下移動不順(抖動???
+        --待新增
+        1.計時
+        2.成績儲存
+        3.排名
         -->
     </div>
 
@@ -139,7 +143,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">紀錄成績</button>
+                    <!-- <button type="button" class="btn btn-primary">紀錄成績</button> -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -473,7 +477,7 @@
                         let zeroindex = puzno.findIndex((no) => no == 0);//ID為0的陣列位置
 
                         /*可移動的條件*/
-                        if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || thisindex + 1 == zeroindex || thisindex - 1 == zeroindex) {
+                        if (thisindex + rank == zeroindex || thisindex - rank == zeroindex || (thisindex + 1 == zeroindex && zeroindex % rank != 0) || (thisindex - 1 == zeroindex && zeroindex % rank != (rank - 1))) {
                             /*陣列中交換位置*/
                             puzlist[zeroindex] = Number.parseInt(thisID);
                             puzlist[thisindex] = 0;
@@ -565,6 +569,9 @@
             document.getElementById("auto").classList.add("disabled");
             document.querySelector("#puzzleBox").setAttribute('class', 'puzzleBox tostart w-100 row ');
 
+        }
+        document.querySelector("label").onclick = function () {
+            alert("此功能尚有缺陷，因尚未處理圖片大小問題，可能導致拼圖格出錯!");
         }
     </script>
 </body>
