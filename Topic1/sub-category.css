@@ -40,7 +40,7 @@ a:hover {
 
 /* 類別頁 */
 .category-body {
-    padding: 20px;
+    padding:0 20px;
     background-color: rgb(235, 235, 235);
 }
 .category-box {
@@ -52,15 +52,11 @@ a:hover {
 /* 類別卡 */
 .category-card {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     break-inside: avoid;
     /* 避免被切掉 */
 }
-.category-card>button>h2 {
-    display: inline-block;
-    text-decoration: underline;
-    margin: 0 0 20px 10px;
-}
+
 .category-card>button {
     border: none;
     background-color: transparent;
@@ -73,13 +69,6 @@ a:hover {
 
 /* 手機 */
 @media screen and (max-width:568px) {
-    .category-body {
-        padding: 0 20px;
-    }
-
-    .category-card {
-        margin-bottom: 5px;
-    }
 
     .sub-category-list {
         margin: 0;
@@ -96,16 +85,17 @@ a:hover {
     .sub-category-list>li:not(:first-child) {
         border-top: 1px solid rgb(180, 180, 180);
     }
-
+    .category-card>a {
+        display: none;
+    }
     .category-card>button {
         width: 100%;
-        margin: 0 0 20px 10px;
-        border-top: 1px solid rgb(180, 180, 180);
-        padding: 12px 0;
+        font-size: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 20px;
+        padding: 12px 0 12px 20px;
+        border-top: 1px solid rgb(180, 180, 180);
         margin: 0;
     }
 
@@ -113,7 +103,6 @@ a:hover {
         padding: 0 18px;
         text-decoration: none;
         font-size: 14px;
-        margin: 0;
     }
 
     .category-card>button::after {
@@ -136,14 +125,29 @@ a:hover {
     .box-width {
         width: 790px;
     }
-
+    /* 類別頁 */
+    .category-body {
+        padding: 20px;
+    }
+    /* 類別卡 */
     .category-card {
+        margin-bottom: 15px;
         border-radius: 6px;
         background-color: white;
         padding: 20px 12px 10px;
     }
-
-    .category-card>button::after {
+    .category-card>a {
+        text-decoration: none;
+        display: block;
+    }
+    .category-card>a>h2 {
+        display: inline-block;
+        text-decoration: underline;
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 0 0 20px 10px;
+    }
+    .category-card>a::after {
         /* icon */
         color: crimson;
         font-family: "Font Awesome 5 Free";
@@ -152,27 +156,21 @@ a:hover {
         margin: 0 3px;
     }
 
-    .category-card>button:hover::after {
+    .category-card>a:hover::after {
         color: dimgray;
     }
 
-    .category-card>button>h2 {
-        margin: 0;
-        font-weight: 700;
-        font-size: 1rem;
-    }
+    
 
     .category-card>button {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
+        display: none
     }
     .collapse:not(.show){
         display: block;
     }
 
     .sub-category-list.collapse{
-    display: inline-block;
+        display: inline-block;
     }
     .sub-category-list>li {
         list-style: none;
