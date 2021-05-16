@@ -21,15 +21,29 @@ a:hover {
 
 /* 標題欄 */
 /* 麵包削 */
-.breadcrumb {
+nav{
+    order: -1;
     margin-bottom: 10px;
+}
+nav>p>a{
     font-size: 14px;
+    margin:0 5px ;
+}
+nav>p>a>span{
+    font-size: 13px;
+    font-weight: 700;
+}
+.breadcrumb {
+    font-size: 14px;
+    margin: 0;
 }
 .breadcrumb-item>a:hover {
     color: crimson;
 }
 
 .title-box {
+    display: flex;
+    flex-direction: column;
     padding: 15px 0 10px;
 }
 .title-box p {
@@ -69,7 +83,9 @@ a:hover {
 
 /* 手機 */
 @media screen and (max-width:568px) {
-
+.breadcrumb{
+    display: none;
+}
     .sub-category-list {
         margin: 0;
         padding: 0;
@@ -118,6 +134,9 @@ a:hover {
 }
 /* 平板 */
 @media screen and (min-width:569px) {
+    nav>p{
+        display: none;
+    }
     .category-box {
         column-count: 2;
     }
