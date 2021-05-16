@@ -1,5 +1,5 @@
 let categoryBox = document.querySelector(".category-box");
-
+// 待有資料後會改為foreach寫法
 for (let i = 1; i <= 10; i++) {
     let categoryCard = document.createElement("div");
     categoryCard.setAttribute('class', 'category-card');
