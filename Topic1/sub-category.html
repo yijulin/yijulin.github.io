@@ -69,14 +69,15 @@
         /* 避免被切掉 */
     }
 
-    .category-card>a>h2 {
+    .category-card>button>h2 {
         display: inline-block;
         text-decoration: underline;
         margin: 0 0 20px 10px;
     }
 
-    .category-card>a {
-        text-decoration: none;
+    .category-card>button {
+        border: none;
+        background-color: transparent;
     }
 
 
@@ -92,7 +93,7 @@
 
         .category-card {
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
 
             break-inside: avoid;
             /* 避免被切掉 */
@@ -103,7 +104,6 @@
             padding: 0;
             background-color: white;
         }
-
 
         .sub-category-list>li {
             list-style: none;
@@ -116,7 +116,8 @@
 
         }
 
-        .category-card>a {
+        .category-card>button {
+            width: 100%;
             margin: 0 0 20px 10px;
             border-top: 1px solid rgb(180, 180, 180);
             padding: 12px 0;
@@ -127,14 +128,14 @@
             margin: 0;
         }
 
-        .category-card>a>h2 {
+        .category-card>button>h2 {
             padding: 0 18px;
             text-decoration: none;
             font-size: 14px;
             margin: 0;
         }
 
-        .category-card>a::after {
+        .category-card>button::after {
             /* icon */
             color: rgb(114, 114, 114);
             font-family: "Font Awesome 5 Free";
@@ -166,22 +167,29 @@
             /* 避免被切掉 */
         }
 
-        .category-card>a::after {
+        .category-card>button::after {
             /* icon */
             color: crimson;
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
             content: "\f054";
+            margin: 0 3px;
         }
 
-        .category-card>a:hover::after {
+        .category-card>button:hover::after {
             color: dimgray;
         }
 
-        .category-card>a>h2 {
+        .category-card>button>h2 {
             display: inline-block;
             text-decoration: underline;
-            margin: 0 0 20px 10px;
+            margin: 0;
+        }
+
+        .category-card>button {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
         .sub-category-list>li {
@@ -224,10 +232,10 @@
     <div class="category-body ">
         <div class="category-box  box-width">
             <div class="category-card">
-                <a href="#">
+                <button data-bs-toggle="collapse" data-bs-target="#category-A">
                     <h2>主類別 </h2>
-                </a>
-                <ul class="sub-category-list">
+                </button>
+                <ul class="sub-category-list collapse" id="category-A">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -245,13 +253,11 @@
                     </li>
                 </ul>
             </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-B">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-B">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -260,25 +266,24 @@
                     </li>
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
                     </li>
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
                 </ul>
             </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-C">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-C">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -296,55 +301,11 @@
                     </li>
                 </ul>
             </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-
-                </ul>
-            </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
-                    <li class="category-item">
-                        <a class="category-link" href="#">子類</a>
-                    </li>
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-D">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-D">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -353,16 +314,53 @@
                     </li>
                 </ul>
             </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-E">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-E">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-F">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-F">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -377,13 +375,44 @@
                     </li>
                 </ul>
             </div>
-            <div class=" category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-G">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-G">
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-H">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-H">
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -392,13 +421,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="  category-card">
-                <a href="#">
-                    <h2>主類別
-
-                    </h2>
-                </a>
-                <ul class="sub-category-list">
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-I">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-I">
                     <li class="category-item">
                         <a class="category-link" href="#">子類</a>
                     </li>
@@ -416,6 +443,21 @@
                     </li>
                 </ul>
             </div>
+            <div class="category-card">
+                <button data-bs-toggle="collapse" data-bs-target="#category-J">
+                    <h2>主類別 </h2>
+                </button>
+                <ul class="sub-category-list collapse" id="category-J">
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                    <li class="category-item">
+                        <a class="category-link" href="#">子類</a>
+                    </li>
+                </ul>
+            </div>
+
+
 
         </div>
     </div>
