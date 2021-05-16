@@ -2,203 +2,191 @@ body {
         font-size: 15px;
     }
 
-    a,
-    a:hover {
-        color: black;
-    }
+a,
+a:hover {
+    color: black;
+}
 
-    .breadcrumb-item>a:hover {
-        color: crimson;
-    }
+.box-width {
+    /* 頁面大小 */
+    width: 508px;
+}
 
-    .title-box {
-        padding: 15px 0 10px;
-    }
+.category-title,
+.category-body {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
 
-    .title-box p {
-        margin: 0;
-        color: rgb(114, 114, 114);
-        font-size: 16px;
-    }
+/* 標題欄 */
+/* 麵包削 */
+.breadcrumb {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.breadcrumb-item>a:hover {
+    color: crimson;
+}
 
-    .breadcrumb {
-        margin-bottom: 10px;
-        font-size: 14px;
-    }
+.title-box {
+    padding: 15px 0 10px;
+}
+.title-box p {
+    margin: 0;
+    color: rgb(114, 114, 114);
+    font-size: 16px;
+}
 
-    .category-title,
+/* 類別頁 */
+.category-body {
+    padding: 20px;
+    background-color: rgb(235, 235, 235);
+}
+.category-box {
+    /* 欄數 */
+    column-count: 1;
+    column-gap: 20px;
+}
+
+/* 類別卡 */
+.category-card {
+    width: 100%;
+    margin-bottom: 15px;
+    break-inside: avoid;
+    /* 避免被切掉 */
+}
+.category-card>button>h2 {
+    display: inline-block;
+    text-decoration: underline;
+    margin: 0 0 20px 10px;
+}
+.category-card>button {
+    border: none;
+    background-color: transparent;
+}
+
+/* 子類別清單 */
+.sub-category-list li>a {
+    text-decoration: none;
+}
+
+/* 手機 */
+@media screen and (max-width:568px) {
     .category-body {
-        display: flex;
-        justify-content: center;
         padding: 0 20px;
     }
 
-    .category-body {
-        padding: 20px;
-        background-color: rgb(235, 235, 235);
-    }
-
-    .category-box {
-        column-count: 1;
-        column-gap: 20px;
-    }
-
-    .box-width {
-        width: 508px;
-    }
-
     .category-card {
-        width: 100%;
-        margin-bottom: 15px;
-        break-inside: avoid;
-        /* 避免被切掉 */
+        margin-bottom: 5px;
     }
 
-    .category-card>button>h2 {
-        display: inline-block;
-        text-decoration: underline;
-        margin: 0 0 20px 10px;
+    .sub-category-list {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    .sub-category-list>li {
+        list-style: none;
+        padding: 8px;
+        margin: 0 10px;
+    }
+
+    .sub-category-list>li:not(:first-child) {
+        border-top: 1px solid rgb(180, 180, 180);
     }
 
     .category-card>button {
-        border: none;
-        background-color: transparent;
+        width: 100%;
+        margin: 0 0 20px 10px;
+        border-top: 1px solid rgb(180, 180, 180);
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        margin: 0;
     }
 
-
-
-    .sub-category-list li>a {
+    .category-card>button>h2 {
+        padding: 0 18px;
         text-decoration: none;
+        font-size: 14px;
+        margin: 0;
     }
 
-    @media screen and (max-width:568px) {
-        .category-body {
-            padding: 0 20px;
-        }
-
-        .category-card {
-            width: 100%;
-            margin-bottom: 5px;
-
-            break-inside: avoid;
-            /* 避免被切掉 */
-        }
-
-        .sub-category-list {
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-
-        .sub-category-list>li {
-            list-style: none;
-            padding: 8px;
-            margin: 0 10px;
-        }
-
-        .sub-category-list>li:not(:first-child) {
-            border-top: 1px solid rgb(180, 180, 180);
-
-        }
-
-        .category-card>button {
-            width: 100%;
-            margin: 0 0 20px 10px;
-            border-top: 1px solid rgb(180, 180, 180);
-            padding: 12px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 20px;
-            margin: 0;
-        }
-
-        .category-card>button>h2 {
-            padding: 0 18px;
-            text-decoration: none;
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .category-card>button::after {
-            /* icon */
-            color: rgb(114, 114, 114);
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            content: "\f078";
-            padding: 0 10px;
-            line-height: 20px;
-            border-left: 1px solid rgb(180, 180, 180);
-        }
-
+    .category-card>button::after {
+        /* icon */
+        color: rgb(114, 114, 114);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f078";
+        padding: 0 10px;
+        line-height: 20px;
+        border-left: 1px solid rgb(180, 180, 180);
     }
-
-    @media screen and (min-width:569px) {
-        .category-box {
-            column-count: 2;
-        }
-
-        .box-width {
-            width: 790px;
-        }
-
-        .category-card {
-            width: 100%;
-            border-radius: 6px;
-            background-color: white;
-            padding: 20px 12px 10px;
-            margin-bottom: 15px;
-            break-inside: avoid;
-            /* 避免被切掉 */
-        }
-
-        .category-card>button::after {
-            /* icon */
-            color: crimson;
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            content: "\f054";
-            margin: 0 3px;
-        }
-
-        .category-card>button:hover::after {
-            color: dimgray;
-        }
-
-        .category-card>button>h2 {
-            display: inline-block;
-            text-decoration: underline;
-            margin: 0;
-        }
-
-        .category-card>button {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .collapse:not(.show){
-            display: block;
-        }
-.sub-category-list.collapse{
-    display: inline-block;
 }
-        .sub-category-list>li {
-            list-style: none;
-            padding: 3px 0 3px 10px;
-        }
-
-        .category-card h2 {
-            font-weight: 700;
-            font-size: 1rem;
-        }
+/* 平板 */
+@media screen and (min-width:569px) {
+    .category-box {
+        column-count: 2;
     }
 
-    @media screen and (min-width:881px) {
-        .category-box {
-            column-count: 3;
-        }
-
-        .box-width {
-            width: 1100px;
-        }
+    .box-width {
+        width: 790px;
     }
+
+    .category-card {
+        border-radius: 6px;
+        background-color: white;
+        padding: 20px 12px 10px;
+    }
+
+    .category-card>button::after {
+        /* icon */
+        color: crimson;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f054";
+        margin: 0 3px;
+    }
+
+    .category-card>button:hover::after {
+        color: dimgray;
+    }
+
+    .category-card>button>h2 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .category-card>button {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .collapse:not(.show){
+        display: block;
+    }
+
+    .sub-category-list.collapse{
+    display: inline-block;
+    }
+    .sub-category-list>li {
+        list-style: none;
+        padding: 3px 0 3px 10px;
+    }
+
+}
+/* 桌機 */
+@media screen and (min-width:881px) {
+    .category-box {
+        column-count: 3;
+    }
+
+    .box-width {
+        width: 1100px;
+    }
+}
