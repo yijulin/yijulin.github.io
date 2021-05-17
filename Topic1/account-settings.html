@@ -47,76 +47,83 @@
                     <h1>偏好設定與個人化</h1>
                     <form class="w-100">
                         <div>
-                            <label for="inputLName">名字</label>
-                            <div class="inputbox">
-                                <input type="text" class="form-control" id="inputLName">
-                            </div>
-                        </div>
-                        <div class="inputbox">
-                            <label for="inputFName">姓氏</label>
-                            <div class="">
-                                <input type="text" class="form-control" id="inputFName">
-                            </div>
-                        </div>
-                        <fieldset class="w-100 my-4">
-                            <legend>顯示成人 (18+) 內容</legend>
                             <div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="RestrictedLevel" id="RL_Y"
-                                        value="true" checked>
-                                    <label class="form-check-label" for="RL_Y">
-                                        是，顯示成人內容
-                                    </label>
+                                <label for="inputLName">名字</label>
+                                <div class="inputbox">
+                                    <input type="text" class="form-control" id="inputLName">
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="RestrictedLevel" id="RL_N"
-                                        value="false">
-                                    <label class="form-check-label" for="RL_Y=N">
-                                        否，隱藏成人內容
-                                    </label>
+                                <label for="inputFName">姓氏</label>
+                                <div class="inputbox">
+                                    <input type="text" class="form-control" id="inputFName">
                                 </div>
+                                <fieldset class="w-100 my-4">
+                                    <legend>性別</legend>
+                                    <div class="raidobox d-flex ">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="Sex" id="Sex_M" value="M"
+                                                checked>
+                                            <label class="form-check-label" for="Sex_F">
+                                                男
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="Sex" id="Sex_F"
+                                                value="F">
+                                            <label class="form-check-label" for="Sex_F">
+                                                女
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
-                        </fieldset>
-                        <fieldset class="w-100 my-4">
-                            <legend>性別 (選填)</legend>
-                            <div class="raidobox d-flex ">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="Sex" id="Sex_M" value="M"
-                                        checked>
-                                    <label class="form-check-label" for="Sex_F">
-                                        男
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="Sex" id="Sex_F" value="F">
-                                    <label class="form-check-label" for="Sex_F">
-                                        女
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="w-100 my-4">
-                            <legend class="">電子郵件更新</legend>
-                            <p>取得關於最新電子書、優惠活動和應用程式更新的資訊。</p>
-                            <div class="raidobox d-flex ">
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="radio" name="EmailSub" id="Sub_Y" value="true"
-                                        checked>
-                                    <label class="form-check-label" for="Sub_Y">
-                                        好的
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="EmailSub" id="Sub_N"
-                                        value="false">
-                                    <label class="form-check-label" for="Sub_N">
-                                        不，謝謝
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
 
-                        <button type="submit" class="btn ">儲存</button>
+                            <div>
+                                <fieldset class="w-100 my-4">
+                                    <legend>顯示成人 (18+) 內容</legend>
+                                    <div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="RestrictedLevel"
+                                                id="RL_Y" value="true" checked>
+                                            <label class="form-check-label" for="RL_Y">
+                                                是，顯示成人內容
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="RestrictedLevel"
+                                                id="RL_N" value="false">
+                                            <label class="form-check-label" for="RL_Y=N">
+                                                否，隱藏成人內容
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="w-100 my-4">
+                                    <legend class="">電子郵件更新</legend>
+                                    <p>取得關於最新電子書、優惠活動和應用程式更新的資訊。</p>
+                                    <div class="raidobox d-flex ">
+                                        <div class="form-check ">
+                                            <input class="form-check-input" type="radio" name="EmailSub" id="Sub_Y"
+                                                value="true" checked>
+                                            <label class="form-check-label" for="Sub_Y">
+                                                好的
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="EmailSub" id="Sub_N"
+                                                value="false">
+                                            <label class="form-check-label" for="Sub_N">
+                                                不，謝謝
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="btn-box">
+                                    <button type="submit" class="btn ">儲存</button>
+                                </div>
+
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <!-- 付款資訊 -->

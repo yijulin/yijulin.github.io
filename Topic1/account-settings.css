@@ -69,7 +69,7 @@ form>div{
     padding:0 10px 10px 10px;
 }
 .form-check-label{
-    padding: 5px 10px 0;
+    padding: 5px 0 0 10px;
 }
 .d-flex .form-check{
     margin-right: 20px;
@@ -88,21 +88,42 @@ fieldset>legend{
     width: 100%;
     background-color: crimson;
     color: white;
-    padding: 8px 30px;
 }
 /* 手機 */
 @media screen and (max-width:568px) {}
 
 /* 平板 */
 @media screen and (min-width:569px) {
+    .tab-content{
+        padding: 30px;
+    }
     .box-width {
         width: 790px;
+    }
+    form>div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    form>div>div:first-child{
+        margin-right: 20px;
+    }
+    .btn-box{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .btn{
+        width: auto;
+        padding: 8px 30px;
     }
 }
 
 /* 桌機 */
 @media screen and (min-width:881px) {
     .box-width {
-        width: 1100px;
+        width: 900px;
+    }
+    .tab-content{
+        padding: 30px 40px;
     }
 }
