@@ -1,0 +1,209 @@
+body {
+        font-size: 15px;
+    }
+
+a,
+a:hover {
+    color: black;
+}
+
+.box-width {
+    /* 頁面大小 */
+    width: 508px;
+}
+
+.category-title,
+.category-body {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* 標題欄 */
+/* 麵包削 */
+nav{
+    order: -1;
+    margin-bottom: 10px;
+}
+nav>p>a{
+    font-size: 14px;
+    margin:0 5px ;
+}
+nav>p>a>span{
+    font-size: 13px;
+    font-weight: 700;
+}
+.breadcrumb {
+    font-size: 14px;
+    margin: 0;
+}
+.breadcrumb-item>a:hover {
+    color: crimson;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 10px;
+}
+.title-box p {
+    margin: 0;
+    color: rgb(114, 114, 114);
+    font-size: 16px;
+}
+
+/* 類別頁 */
+.category-body {
+    padding:0 20px;
+    background-color: rgb(235, 235, 235);
+}
+.category-box {
+    /* 欄數 */
+    column-count: 1;
+    column-gap: 20px;
+}
+
+/* 類別卡 */
+.category-card {
+    width: 100%;
+    margin-bottom: 5px;
+    break-inside: avoid;
+    /* 避免被切掉 */
+}
+
+.category-card>button {
+    border: none;
+    background-color: transparent;
+}
+
+/* 子類別清單 */
+.sub-category-list li>a {
+    text-decoration: none;
+}
+
+/* 手機 */
+@media screen and (max-width:568px) {
+.breadcrumb{
+    display: none;
+}
+    .sub-category-list {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    .sub-category-list>li {
+        list-style: none;
+        padding: 8px;
+        margin: 0 10px;
+    }
+
+    .sub-category-list>li:not(:first-child) {
+        border-top: 1px solid rgb(180, 180, 180);
+    }
+    .category-card>a {
+        display: none;
+    }
+    .category-card>button {
+        width: 100%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0 12px 20px;
+        border-top: 1px solid rgb(180, 180, 180);
+        margin: 0;
+    }
+
+    .category-card>button>h2 {
+        padding: 0 18px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .category-card>button::after {
+        /* icon */
+        color: rgb(114, 114, 114);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f078";
+        padding: 0 10px;
+        line-height: 20px;
+        border-left: 1px solid rgb(180, 180, 180);
+    }
+}
+/* 平板 */
+@media screen and (min-width:569px) {
+    nav>p{
+        display: none;
+    }
+    .category-box {
+        column-count: 2;
+    }
+
+    .box-width {
+        width: 790px;
+    }
+    /* 類別頁 */
+    .category-body {
+        padding: 20px;
+    }
+    /* 類別卡 */
+    .category-card {
+        margin-bottom: 15px;
+        border-radius: 6px;
+        background-color: white;
+        padding: 20px 12px 10px;
+    }
+    .category-card>a {
+        text-decoration: none;
+        display: block;
+    }
+    .category-card>a>h2 {
+        display: inline-block;
+        text-decoration: underline;
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 0 0 20px 10px;
+    }
+    .category-card>a::after {
+        /* icon */
+        color: crimson;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f054";
+        margin: 0 3px;
+    }
+
+    .category-card>a:hover::after {
+        color: dimgray;
+    }
+
+    
+
+    .category-card>button {
+        display: none
+    }
+    .collapse:not(.show){
+        display: block;
+    }
+
+    .sub-category-list.collapse{
+        display: inline-block;
+    }
+    .sub-category-list>li {
+        list-style: none;
+        padding: 3px 0 3px 10px;
+    }
+
+}
+/* 桌機 */
+@media screen and (min-width:881px) {
+    .category-box {
+        column-count: 3;
+    }
+
+    .box-width {
+        width: 1100px;
+    }
+}
