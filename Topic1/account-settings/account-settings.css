@@ -139,9 +139,19 @@ nav{
     box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.5);
     margin:  0 5px;
 }
-
+#nav-purchase table{
+    border-top: 5px solid crimson;
+}
+#nav-purchase table a{
+    color: crimson;
+    font-weight: 700;
+}
 /* 手機 */
-@media screen and (max-width:568px) {}
+@media screen and (max-width:568px) {
+    #nav-purchase table tr:first-child{
+        display: none;
+    }
+}
 
 /* 平板 */
 @media screen and (min-width:569px) {
