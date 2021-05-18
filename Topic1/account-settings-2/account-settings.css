@@ -81,89 +81,71 @@ nav{
     padding: 15px;
 }
 /*內容*/
-#nav-setting form{
+form{
     margin: 20px 0;
 }
-#nav-setting form>div{
+form>div{
     margin-bottom: 20px;
 }
-#nav-setting .inputbox{
+.inputbox{
     padding: 0 5px;
 }
 /*單選*/
-#nav-setting .form-check-input:checked {
+.form-check-input:checked {
     background-color: crimson;
     border-color: crimson;
 }
-#nav-setting .form-check .form-check-input {
+.form-check .form-check-input {
     margin-left: -.5em;
 }
-#nav-setting .form-check{
+.form-check{
     padding:0 10px 10px 10px;
 }
-#nav-setting .form-check-label{
+.form-check-label{
     padding: 5px 0 0 10px;
 }
-#nav-setting .d-flex .form-check{
+.d-flex .form-check{
     margin-right: 20px;
 }
-#nav-setting input[type="radio"]{
+input[type="radio"]{
     font-size: 20px;
     
 }
-#nav-setting label,
-#nav-setting fieldset>legend{
+
+label,
+fieldset>legend{
     font-size: 12px;
     font-weight: 700;
 }
-#nav-setting .btn{
+.btn{
     width: 100%;
     background-color: crimson;
     color: white;
 }
-
-/*購買紀錄*/
-#nav-purchase p{
-    margin: 20px 0;
-    font-size: 14px;
-}
-#nav-purchase p>a{
-    font-style: italic;
-}
-#nav-purchase .orderby-box{
-    display: flex;
-    flex-direction: column;
-}
-.form-select{
-    width: 200PX;
-    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.5);
-    margin:  0 5px;
-}
-
 /* 手機 */
 @media screen and (max-width:568px) {}
 
 /* 平板 */
 @media screen and (min-width:569px) {
-    .box-width {
-        width: 790px;
-    }
     .tab-content{
         padding: 30px;
     }
-    #nav-setting form>div{
+    .box-width {
+        width: 790px;
+    }
+    form>div{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    #nav-setting form>div>div:first-child{
+    form>div>div:first-child{
         margin-right: 20px;
     }
-    #nav-setting .btn-box{
+    .btn-box{
         display: flex;
         justify-content: flex-end;
     }
-    #nav-setting .btn{
+    .btn{
         width: auto;
         padding: 8px 30px;
     }
