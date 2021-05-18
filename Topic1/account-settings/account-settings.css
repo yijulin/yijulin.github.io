@@ -148,14 +148,19 @@ nav{
     padding-right:5px;
     padding-left:5px;
 }
-#nav-purchase table{
+#nav-purchase table tr:nth-child(2){
     border-top: 5px solid crimson;
+}
+#nav-purchase table tr{
     font-size: 14px;
 }
 #nav-purchase table a{
     color: crimson;
     font-weight: 700;
 }
+#nav-purchase table tr:not(:first-child){
+        border-bottom: 1px solid #CCC;
+    }
 #nav-purchase table tr:first-child{
         display: none;
 }
@@ -168,7 +173,6 @@ nav{
     #nav-purchase table tr{
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid #CCC;
     }
     
     #nav-purchase table tr td{
@@ -201,14 +205,25 @@ nav{
         width: auto;
         padding: 8px 30px;
     }
+    #nav-purchase td{
+        margin: 10px 0;
+    }
+    #nav-purchase .orderby-box {
+        align-items: center;
+        flex-direction: row;
+    }
+    #nav-purchase .record-body>div{
+        display: flex;
+    }
     #nav-purchase .orderTitle{
         flex: auto;
         width: 100%;
     }
-    #nav-purchase .orderDateTime,
-    #nav-purchase .orderID,
+    
     #nav-purchase .orderPrice,
-    #nav-purchase .orderCategory{
+    #nav-purchase .orderCategory,
+    #nav-purchase .orderDateTime,
+    #nav-purchase .orderID{
         flex: auto;
         width: 25%;
     }
@@ -233,15 +248,23 @@ nav{
     #nav-purchase table tr .orderID::before{
         content: "";
     }
-    #nav-purchase .orderTitle{
+    #nav-purchase .orderTitle th,
+    #nav-purchase .orderTitle td{
         flex: auto;
         width: 50%;
     }
-    #nav-purchase .orderDateTime,
-    #nav-purchase .orderID,
-    #nav-purchase .orderPrice,
-    #nav-purchase .orderCategory{
+    #nav-purchase .orderPrice th,
+    #nav-purchase .orderCategory th,
+    #nav-purchase .orderPrice td,
+    #nav-purchase .orderCategory td{
         flex: auto;
         width: 10%;
+    }
+    #nav-purchase .orderDateTime td,
+    #nav-purchase .orderID td,
+    #nav-purchase .orderDateTime th,
+    #nav-purchase .orderID th{
+        flex: auto;
+        width: 15%;
     }
 }
