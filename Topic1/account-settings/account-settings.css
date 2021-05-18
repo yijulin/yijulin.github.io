@@ -141,16 +141,31 @@ nav{
 }
 #nav-purchase table{
     border-top: 5px solid crimson;
+    font-size: 14px;
 }
 #nav-purchase table a{
     color: crimson;
     font-weight: 700;
 }
+#nav-purchase table tr:first-child{
+        display: none;
+}
+#nav-purchase table tr .orderID::before{
+        content: "訂單號碼 ";
+}
 /* 手機 */
 @media screen and (max-width:568px) {
-    #nav-purchase table tr:first-child{
-        display: none;
+
+    #nav-purchase table tr{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #CCC;
     }
+    
+    #nav-purchase table tr td{
+        padding: 10px 5px;
+    }
+    
 }
 
 /* 平板 */
@@ -177,6 +192,14 @@ nav{
         width: auto;
         padding: 8px 30px;
     }
+    .col-md-12{
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .col-md-3{
+        flex: 0 0 auto;
+        width: 25%;
+    }
 }
 
 /* 桌機 */
@@ -187,4 +210,10 @@ nav{
     .tab-content{
         padding: 30px 40px;
     }
+    #nav-purchase table tr:first-child{
+        display: inline;
+    }
+    #nav-purchase table tr .orderID::before{
+        content: "";
+}
 }
