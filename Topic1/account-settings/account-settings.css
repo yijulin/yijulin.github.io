@@ -215,7 +215,7 @@ nav{
     #nav-purchase .record-body>div{
         display: flex;
     }
-    #nav-purchase .orderTitle{
+    #nav-purchase .orderTitle {
         flex: auto;
         width: 100%;
     }
@@ -248,23 +248,17 @@ nav{
     #nav-purchase table tr .orderID::before{
         content: "";
     }
-    #nav-purchase .orderTitle th,
-    #nav-purchase .orderTitle td{
-        flex: auto;
+
+    #nav-purchase .orderTitle,
+    #nav-purchase tr>:first-child {
         width: 50%;
     }
-    #nav-purchase .orderPrice th,
-    #nav-purchase .orderCategory th,
-    #nav-purchase .orderPrice td,
-    #nav-purchase .orderCategory td{
-        flex: auto;
+    #nav-purchase .orderPrice,
+    #nav-purchase .orderCategory{
         width: 10%;
     }
-    #nav-purchase .orderDateTime td,
-    #nav-purchase .orderID td,
-    #nav-purchase .orderDateTime th,
-    #nav-purchase .orderID th{
-        flex: auto;
+    #nav-purchase .orderDateTime,
+    #nav-purchase .orderID{
         width: 15%;
-    }
+    } 
 }
