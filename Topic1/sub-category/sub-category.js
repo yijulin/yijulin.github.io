@@ -20,6 +20,7 @@ for (let i = 1; i <= 10; i++) {
 
     let ul = document.createElement("ul");
     ul.setAttribute('class', 'sub-category-list collapse');
+    ul.setAttribute('data-bs-parent', '#catebox');
     ul.id = `category-${i}`;
 
     let max = Math.floor(Math.random() * 10) + 2;

@@ -37,6 +37,7 @@ nav{
 /*設定選單*/
 .nav-tabs{
     border-bottom: none;
+    flex-wrap: nowrap;
 }
 .nav-tabs .nav-link{
     border-bottom-left-radius: 0;
