@@ -81,6 +81,7 @@ nav{
     background-color:rgb(245, 245, 245) ;
     padding: 15px;
 }
+
 /*內容*/
 #nav-setting form{
     margin: 20px 0;
@@ -125,7 +126,7 @@ nav{
 
 /*購買紀錄*/
 #nav-purchase p{
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 14px;
 }
 #nav-purchase p>a{
@@ -168,6 +169,13 @@ nav{
 #nav-purchase table tr .orderID::before{
         content: "訂單號碼 ";
 }
+#nav-purchase.FormResult{
+    display: flex;
+    justify-content: flex-end;
+}
+#nav-purchase .record-body>div{
+    margin: 20px auto;
+}
 /* 手機 */
 @media screen and (max-width:568px) {
 
@@ -179,7 +187,14 @@ nav{
     #nav-purchase table tr td{
         padding: 10px 5px;
     }
-    
+    #nav-purchase .FormResult{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    #nav-purchase .FormResult>p{
+        display: inline-block;
+    }
 }
 
 /* 平板 */
@@ -215,6 +230,7 @@ nav{
     }
     #nav-purchase .record-body>div{
         display: flex;
+        justify-content: space-between;
     }
     #nav-purchase .orderTitle {
         flex: auto;
