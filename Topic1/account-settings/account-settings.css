@@ -7,8 +7,23 @@ a,
 a:hover {
     color: black;
 }
-h1{
+h1,h2{
     font-size: 18px;
+}
+.fs-14px{
+    font-size: 14px;
+}
+.btn-save{
+    width: 100%;
+    background-color: crimson;
+    color: white;
+    margin: 5px 0;
+}
+.btn-cancel{
+    width: 100%;
+    background-color: #6c757d;
+    color: white;
+    margin: 5px 0;
 }
 
 .account-title,
@@ -118,12 +133,6 @@ nav{
     font-size: 12px;
     font-weight: 700;
 }
-/* 按鈕 */
-#nav-setting .btn{
-    width: 100%;
-    background-color: crimson;
-    color: white;
-}
 
 /*=====購買紀錄=====*/
 #nav-purchase p{
@@ -177,7 +186,45 @@ nav{
 #nav-purchase .record-body>div{
     margin: 20px auto;
 }
+/*=====付款資訊=====*/
+#nav-payment>div {
+    display: flex;
+    flex-direction: column;
+}
+#nav-payment>div>div {
+    margin-bottom: 20px;
+}
 
+#nav-payment label{
+    font-size: 12px;
+    font-weight: 700;
+}
+#nav-payment form>div{
+    margin: 10px 0;
+}
+#nav-payment .payment-box,
+#nav-payment .bill-box{
+    width: 100%;
+}
+#nav-payment form>div.btn-box{
+    margin-top: 30px;
+    width: 100%;
+}
+#nav-payment .CreditName-box,
+#nav-payment .CreditNumber-box,
+#nav-payment .BillCountry-box,
+#nav-payment .BillAddress-box,
+#nav-payment .BillCity-box{
+    width: 100%;
+}
+
+#nav-payment .SecurityCode-box{
+    width: 65%;
+}
+#nav-payment .PostalCode-box,
+#nav-payment .BillPhone-box{
+    width: 50%;
+}
 /*- - - -  手機  - - - -*/
 @media screen and (max-width:568px) {
     /* =====購買紀錄===== */
@@ -197,6 +244,11 @@ nav{
     #nav-purchase .FormResult>p{
         display: inline-block;
     }
+    /*=====付款資訊=====*/
+    #nav-payment>div>div:not(:first-child){
+    border-top: 2px solid #bbbbbb ;
+    padding-top: 30px;
+}
 }
 
 /* 平板 */
@@ -249,6 +301,48 @@ nav{
         flex: auto;
         width: 25%;
     }
+    /*=====付款資訊=====*/
+    
+    #nav-payment>div{
+        flex-direction: row;
+        justify-content: space-between;
+
+        column-gap: 30px;
+    }
+    #nav-payment>div>div:not(:first-child){
+        border-left: 2px solid #bbbbbb ;
+        padding-left: 30px;
+    
+    }
+    #nav-payment .bill-box>h2{
+        margin-bottom: 50px;
+    }
+    #nav-payment .bill-box .btn-box{
+        margin-top: 108px;
+    }
+    #nav-payment .bill-box form {
+        display: flex;
+        flex-direction: row;    
+        flex-wrap: wrap;
+    }
+    #nav-payment .BillCountry-box,
+    #nav-payment .PostalCode-box{
+        
+        padding-right: 10px;
+    }
+
+    #nav-payment .BillCountry-box,
+    #nav-payment .BillCity-box{
+        width: 50%;
+    }
+    #nav-payment .SecurityCode-box,
+    #nav-payment .PostalCode-box{
+        width: 41%;
+    }
+    #nav-payment .expiry-datetime-box,
+    #nav-payment .BillPhone-box{
+        width: 59%;
+    }
 }
 
 /* 桌機 */
@@ -283,4 +377,16 @@ nav{
     #nav-purchase .orderID{
         width: 15%;
     } 
+    /*=====付款資訊=====*/
+    #nav-payment .payment-box .btn-box,
+    #nav-payment .bill-box .btn-box{
+        display: flex;
+        flex-direction: row-reverse;
+
+    }
+    #nav-payment .payment-box .btn-box>button,
+    #nav-payment .bill-box .btn-box>button{
+        margin-left:10px;
+        width: 30%;
+    }
 }
