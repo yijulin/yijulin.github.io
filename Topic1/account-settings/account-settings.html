@@ -12,14 +12,17 @@
 
     <title>我的帳戶 | Rakuten Kobo</title>
     <link rel="stylesheet" href="account-settings.css">
+    <script src="https://kit.fontawesome.com/b5505769ea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <h1 class="d-none">Kobo 樂天</h1>
     <div class="account-title">
         <div class="title-box box-width">
             <img class="pb-3" src="https://akimages.kobobooks.com/images/misc/Navigation/Top/rakuten-kobo-landscape.png"
                 alt="Kobo-Logo">
             <nav aria-label="breadcrumb">
+                <h2 class="d-none">我的帳戶</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">我的帳戶</li>
@@ -129,7 +132,106 @@
                 </div>
                 <!-- 付款資訊 -->
                 <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-payment-tab">
+                    <div class="">
+                        <h1>付款資訊</h1>
+                        <p>信用卡／金融卡</p>
+                        <div>
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-jcb"></i>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">信用卡上的姓名</label>
+                            <input type="text" class="form-control is-invalid" id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                請確實輸入姓名
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">信用卡號碼</label>
+                            <input type="text" class="form-control is-invalid" id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                不正確的信用卡長度
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="validationServer03" class="form-label">安全碼</label>
+                            <div class=" position-relative">
+                                <span
+                                    class="fas fa-question-circle position-absolute top-50 end-0 translate-middle bg-white ps-1"></span>
+                                <input type="text" class="form-control is-invalid" id="validationServer03"
+                                    aria-describedby="validationServer03Feedback" required>
+                            </div>
 
+                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                無效的 CVV/安全碼
+                            </div>
+                        </div>
+                        <div class="">
+                            <label for="validationServer03" class="form-label">到期日 *</label>
+                            <div class="">
+                                <label for="validationServer03" class="form-label">月</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>05</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            /
+                            <div class="">
+                                <label for="validationServer03" class="form-label">年</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>2021</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" class="btn ">儲存</button>
+                            <button type="submit" class="btn btn-secondary">取消</button>
+                        </div>
+                    </div>
+                    <div class="">
+                        <h1>帳單地址</h1>
+                        <div class="">
+                            <label for="validationServer03" class="form-label">國家/地區</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>台灣</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">地址</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">城市</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">郵遞區號</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">電話號碼</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" class="btn ">儲存</button>
+                            <button type="submit" class="btn btn-secondary">取消</button>
+                        </div>
+                    </div>
                 </div>
                 <!-- 購買紀錄 -->
                 <div class="tab-pane fade" id="nav-purchase" role="tabpanel" aria-labelledby="nav-purchase-tab">
