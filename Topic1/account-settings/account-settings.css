@@ -37,7 +37,27 @@ h1,h2{
 .account-title{
     margin-top: 30px;
 }
-
+/* 頁尾 */
+.account-foot{
+    font-size: 12px;
+    font-weight: 600;
+}
+.account-foot ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.account-foot p{
+    margin: 0;
+    padding: 0;
+}
+.account-foot ul li{
+    padding-right: 5px;
+}
+.account-foot ul li:not(:first-child){
+    padding-left: 5px;
+    border-left: 1px solid black;
+}
 /* 麵包削 */
 nav{
     margin-bottom: 20px;
