@@ -27,16 +27,17 @@ h1,h2{
 }
 
 .account-title,
-.account-body {
+.account-body,
+.account-foot {
     display: flex;
     justify-content: center;
-    
     padding: 0 20px;
 }
 /* 標題欄 */
 .account-title{
     margin-top: 30px;
 }
+
 /* 麵包削 */
 nav{
     margin-bottom: 20px;
