@@ -170,7 +170,7 @@ nav{
 #nav-purchase table tr .orderID::before{
         content: "訂單號碼 ";
 }
-#nav-purchase.FormResult{
+#nav-purchase .FormResult{
     display: flex;
     justify-content: flex-end;
 }
@@ -234,7 +234,7 @@ nav{
         align-items: center;
         flex-direction: row;
     }
-    #nav-purchase .record-body>div{
+    #nav-purchase .record-body div:first-child{
         display: flex;
         justify-content: space-between;
     }
