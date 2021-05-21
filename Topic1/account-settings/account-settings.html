@@ -140,39 +140,41 @@
                             <i class="fab fa-cc-mastercard"></i>
                             <i class="fab fa-cc-jcb"></i>
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationServer03" class="form-label">信用卡上的姓名</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer03"
-                                aria-describedby="validationServer03Feedback" required>
-                            <div id="validationServer03Feedback" class="invalid-feedback">
+                        <div class="">
+                            <label for="CreditName" class="form-label">信用卡上的姓名</label>
+                            <!-- is-invalid -->
+                            <input type="text" class="form-control " id="CreditName"
+                                aria-describedby="CreditNameFeedback" required>
+                            <div id="CreditNameFeedback" class="invalid-feedback">
                                 請確實輸入姓名
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationServer03" class="form-label">信用卡號碼</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer03"
-                                aria-describedby="validationServer03Feedback" required>
-                            <div id="validationServer03Feedback" class="invalid-feedback">
+                        <div class="">
+                            <label for="CreditNumber" class="form-label">信用卡號碼</label>
+                            <input type="text" class="form-control" id="CreditNumber"
+                                aria-describedby="CreditNumberFeedback" required>
+                            <div id="CreditNumberFeedback" class="invalid-feedback">
                                 不正確的信用卡長度
                             </div>
                         </div>
-                        <div class="col-md-6 ">
-                            <label for="validationServer03" class="form-label">安全碼</label>
+                        <div class=" ">
+                            <label for="SecurityCode" class="form-label">安全碼</label>
                             <div class=" position-relative">
                                 <span
                                     class="fas fa-question-circle position-absolute top-50 end-0 translate-middle bg-white ps-1"></span>
-                                <input type="text" class="form-control is-invalid" id="validationServer03"
-                                    aria-describedby="validationServer03Feedback" required>
+                                <input type="text" class="form-control" id="SecurityCode"
+                                    aria-describedby="SecurityCodeFeedback" required>
                             </div>
 
-                            <div id="validationServer03Feedback" class="invalid-feedback">
+                            <div id="SecurityCodeFeedback" class="invalid-feedback">
                                 無效的 CVV/安全碼
                             </div>
                         </div>
                         <div class="">
-                            <label for="validationServer03" class="form-label">到期日 *</label>
+                            <label for="ExpiryDate" class="form-label">到期日 *</label>
                             <div class="">
-                                <label for="validationServer03" class="form-label">月</label>
+                                <label for="ExpiryDate" class="form-label">月</label>
+                                <input type="month" name="" id="">
                                 <select class="form-select" aria-label="Default select example">
                                     <option selected>05</option>
                                     <option value="1">One</option>
@@ -197,7 +199,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <h1>帳單地址</h1>
+                        <h2>帳單地址</h2>
                         <div class="">
                             <label for="validationServer03" class="form-label">國家/地區</label>
                             <select class="form-select" aria-label="Default select example">

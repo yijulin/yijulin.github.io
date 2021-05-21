@@ -34,7 +34,7 @@ nav{
     color: crimson;
 }
 
-/*設定選單*/
+/*選單*/
 .nav-tabs{
     border-bottom: none;
     flex-wrap: nowrap;
@@ -82,7 +82,7 @@ nav{
     padding: 15px;
 }
 
-/*內容*/
+/*=====偏好設定=====*/
 #nav-setting form{
     margin: 20px 0;
 }
@@ -118,13 +118,14 @@ nav{
     font-size: 12px;
     font-weight: 700;
 }
+/* 按鈕 */
 #nav-setting .btn{
     width: 100%;
     background-color: crimson;
     color: white;
 }
 
-/*購買紀錄*/
+/*=====購買紀錄=====*/
 #nav-purchase p{
     margin: 10px 0;
     font-size: 14px;
@@ -176,9 +177,10 @@ nav{
 #nav-purchase .record-body>div{
     margin: 20px auto;
 }
-/* 手機 */
-@media screen and (max-width:568px) {
 
+/*- - - -  手機  - - - -*/
+@media screen and (max-width:568px) {
+    /* =====購買紀錄===== */
     #nav-purchase table tr{
         display: flex;
         flex-direction: column;
@@ -205,6 +207,8 @@ nav{
     .tab-content{
         padding: 30px;
     }
+
+    /*=====偏好設定=====*/
     #nav-setting form>div{
         display: flex;
         flex-direction: row;
@@ -221,6 +225,8 @@ nav{
         width: auto;
         padding: 8px 30px;
     }
+
+    /* =====購買紀錄===== */
     #nav-purchase td{
         margin: 10px 0;
     }
@@ -236,7 +242,6 @@ nav{
         flex: auto;
         width: 100%;
     }
-    
     #nav-purchase .orderPrice,
     #nav-purchase .orderCategory,
     #nav-purchase .orderDateTime,
@@ -254,6 +259,7 @@ nav{
     .tab-content{
         padding: 30px 40px;
     }
+    /*=====購買紀錄=====*/
     #nav-purchase table tr{
         margin: 10px 0;
         flex-wrap: nowrap;
@@ -265,7 +271,6 @@ nav{
     #nav-purchase table tr .orderID::before{
         content: "";
     }
-
     #nav-purchase .orderTitle,
     #nav-purchase tr>:first-child {
         width: 50%;
