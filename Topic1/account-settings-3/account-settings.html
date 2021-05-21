@@ -132,7 +132,7 @@
                 </div>
                 <!-- 付款資訊 -->
                 <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-payment-tab">
-                    <div class="payment-box">
+                    <div class="">
                         <h1>付款資訊</h1>
                         <p>信用卡／金融卡</p>
                         <div>
@@ -140,112 +140,108 @@
                             <i class="fab fa-cc-mastercard"></i>
                             <i class="fab fa-cc-jcb"></i>
                         </div>
-                        <form action="">
-                            <div class="">
-                                <label for="CreditName" class="form-label">信用卡上的姓名</label>
-                                <!-- is-invalid -->
-                                <input type="text" class="form-control " id="CreditName"
-                                    aria-describedby="CreditNameFeedback" required>
-                                <div id="CreditNameFeedback" class="invalid-feedback">
-                                    請確實輸入姓名
-                                </div>
+                        <div class="">
+                            <label for="CreditName" class="form-label">信用卡上的姓名</label>
+                            <!-- is-invalid -->
+                            <input type="text" class="form-control " id="CreditName"
+                                aria-describedby="CreditNameFeedback" required>
+                            <div id="CreditNameFeedback" class="invalid-feedback">
+                                請確實輸入姓名
                             </div>
-                            <div class="">
-                                <label for="CreditNumber" class="form-label">信用卡號碼</label>
-                                <input type="number" class="form-control" id="CreditNumber"
-                                    aria-describedby="CreditNumberFeedback" maxlength="22" required>
-                                <div id="CreditNumberFeedback" class="invalid-feedback">
-                                    不正確的信用卡長度
-                                </div>
+                        </div>
+                        <div class="">
+                            <label for="CreditNumber" class="form-label">信用卡號碼</label>
+                            <input type="number" class="form-control" id="CreditNumber"
+                                aria-describedby="CreditNumberFeedback" maxlength="22" required>
+                            <div id="CreditNumberFeedback" class="invalid-feedback">
+                                不正確的信用卡長度
                             </div>
-                            <div class=" ">
-                                <label for="SecurityCode" class="form-label">安全碼</label>
-                                <div class=" position-relative">
-                                    <span
-                                        class="fas fa-question-circle position-absolute top-50 end-0 translate-middle bg-white ps-1"></span>
-                                    <input type="number" class="form-control" id="SecurityCode"
-                                        aria-describedby="SecurityCodeFeedback" maxlength="4" required>
-                                </div>
+                        </div>
+                        <div class=" ">
+                            <label for="SecurityCode" class="form-label">安全碼</label>
+                            <div class=" position-relative">
+                                <span
+                                    class="fas fa-question-circle position-absolute top-50 end-0 translate-middle bg-white ps-1"></span>
+                                <input type="number" class="form-control" id="SecurityCode"
+                                    aria-describedby="SecurityCodeFeedback" maxlength="4" required>
+                            </div>
 
-                                <div id="SecurityCodeFeedback" class="invalid-feedback">
-                                    無效的 CVV/安全碼
+                            <div id="SecurityCodeFeedback" class="invalid-feedback">
+                                無效的 CVV/安全碼
+                            </div>
+                        </div>
+                        <div class="">
+                            <label for="ExpiryDate" class="form-label">到期日 *</label>
+                            <div class="d-flex">
+                                <div class="">
+                                    <label for="ExpiryMonth" class="form-label">月</label>
+                                    <select class="form-select" id="ExpiryMonth" aria-label="Default select">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5" selected>05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="">
+                                    <label for="ExpiryYear" class="form-label">年</label>
+                                    <select class="form-select" id="ExpiryYear" aria-label="Default select">
+                                        <option value="2021" selected>2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="">
-                                <label for="ExpiryDate" class="form-label">到期日 *</label>
-                                <div class="d-flex">
-                                    <div class="">
-                                        <label for="ExpiryMonth" class="form-label">月</label>
-                                        <select class="form-select" id="ExpiryMonth" aria-label="Default select">
-                                            <option value="1">01</option>
-                                            <option value="2">02</option>
-                                            <option value="3">03</option>
-                                            <option value="4">04</option>
-                                            <option value="5" selected>05</option>
-                                            <option value="6">06</option>
-                                            <option value="7">07</option>
-                                            <option value="8">08</option>
-                                            <option value="9">09</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                    </div>
-                                    <div class="">
-                                        <label for="ExpiryYear" class="form-label">年</label>
-                                        <select class="form-select" id="ExpiryYear" aria-label="Default select">
-                                            <option value="2021" selected>2021</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="btn-box">
-                                <button type="submit" class="btn ">儲存</button>
-                                <button class="btn btn-secondary">取消</button>
-                            </div>
-                        </form>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" class="btn ">儲存</button>
+                            <button type="submit" class="btn btn-secondary">取消</button>
+                        </div>
                     </div>
-                    <div class="bill-box">
+                    <div class="">
                         <h2>帳單地址</h2>
-                        <form action="">
-                            <div class="">
-                                <label for="BillCountry" class="form-label">國家/地區</label>
-                                <select class="form-select" id="BillCountry" aria-label="Default select example">
-                                    <option selected>台灣</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <div class="">
-                                <label for="BillAddress" class="form-label">地址</label>
-                                <input type="text" class="form-control " id="BillAddress"
-                                    aria-describedby="BillAddressFeedback" required>
-                            </div>
-                            <div class="">
-                                <label for="BillCity" class="form-label">城市</label>
-                                <input type="text" class="form-control " id="BillCity"
-                                    aria-describedby="BillCityFeedback" required>
-                            </div>
-                            <div class="">
-                                <label for="PostalCode" class="form-label">郵遞區號</label>
-                                <input type="number" class="form-control " id="PostalCode"
-                                    aria-describedby="PostalCodeFeedback" required>
-                            </div>
-                            <div class="">
-                                <label for="BillPhone" class="form-label">電話號碼</label>
-                                <input type="tel" class="form-control " id="BillPhone"
-                                    aria-describedby="BillPhoneFeedback" required>
-                            </div>
-                            <div class="btn-box">
-                                <button type="submit" class="btn ">儲存</button>
-                                <button class="btn btn-secondary">取消</button>
-                            </div>
-                        </form>
+                        <div class="">
+                            <label for="validationServer03" class="form-label">國家/地區</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>台灣</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">地址</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">城市</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">郵遞區號</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">電話號碼</label>
+                            <input type="text" class="form-control " id="validationServer03"
+                                aria-describedby="validationServer03Feedback" required>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" class="btn ">儲存</button>
+                            <button type="submit" class="btn btn-secondary">取消</button>
+                        </div>
                     </div>
                 </div>
                 <!-- 購買紀錄 -->
