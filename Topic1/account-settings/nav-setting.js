@@ -2,11 +2,24 @@
 document.getElementById("nav-setting-tab").onclick = function () {
     showSetting();
     //document.getElementById("nav-payment").innerHTML = "";
+    document.getElementById("nav-purchase").innerHTML = "";
+};
+//=====   =====
+document.getElementById("nav-payment-tab").onclick = function () {
+    //showSetting();
+    //document.getElementById("nav-setting").innerHTML = "";
     //document.getElementById("nav-purchase").innerHTML = "";
 };
+//===== 購買紀錄 =====
+document.getElementById("nav-purchase-tab").onclick = function () {
+    showPurchase();
+    //document.getElementById("nav-payment").innerHTML = "";
+    document.getElementById("nav-setting").innerHTML = "";
 
+};
+
+//===== 偏好設定與個人化 =====
 function showSetting() {
-
     // -------動態生成---------
     let settingBox = document.getElementById("nav-setting");
     settingBox.innerHTML = "";
@@ -139,6 +152,158 @@ function showSetting() {
     settingBox.appendChild(form);
 
 }
+
+//===== 購買紀錄 =====
+function showPurchase() {
+    // -------動態生成---------
+    let purchaseBox = document.getElementById("nav-purchase");
+    purchaseBox.innerHTML = "";
+
+    //#nav-purchase>h1
+    let h1 = document.createElement("h1");
+    h1.innerText = "購買紀錄";
+    purchaseBox.appendChild(h1);
+
+    //#nav-purchase>p
+    let p = document.createElement("p");
+    p.innerHTML = '以下是在 Kobo 完成的購買紀錄。即使從您的圖書庫刪除書籍，仍可在此處查看紀錄。若您有任何問題或需要購買上的協助，請<a href = "#" >聯繫我們</a>，或參閱我們的<a href = "#" >銷售條款</>。';
+    purchaseBox.appendChild(p);
+
+    /***模擬訂單清單***/
+    let tdList = [];
+    //let max = 0;
+    let max = Math.floor(Math.random() * 10);
+    for (let i = 0; i < max; i++) {
+        let test = { ProductName: `標題${i}`, href: "#", OrderDate: "2021/5/18", OrderID: "1841543421", UnitPrice: "NT$0", ProductClass: "電子書" };
+        tdList.push(test);
+        //console.log(max);
+    }
+    if (tdList.length > 0) {
+        //#nav-purchase>div
+        let recordBody = document.createElement("div");
+        recordBody.setAttribute('class', 'record-body');
+
+        //#nav-purchase>div>div
+        let recordBody_div = document.createElement("div");
+
+        //#nav-purchase>div>div>div
+        let orderbyBox = document.createElement("div");
+        orderbyBox.setAttribute('class', 'orderby-box');
+
+        //#nav-purchase>div>div>div>label
+        let orderby_label = document.createElement("label");
+        orderby_label.setAttribute('for', 'orderby');
+        orderby_label.innerText = "排序方式：";
+        orderbyBox.appendChild(orderby_label);
+
+        //---下拉選單---
+        let orderselect = [{ value: "datetime", text: "日期" },
+        { value: "price", text: "價錢" },
+        { value: "AtoZ", text: "字母A-Z" },
+        { value: "ZtoA", text: "字母Z-A" },
+        ]
+        //#nav-purchase>div>div>div>select
+        let select = document.createElement("select");
+        select.setAttribute('class', 'form-select');
+        select.setAttribute('aria-label', 'Default select ');
+        select.setAttribute('id', 'orderby');
+        //#nav-purchase>div>div>div>select>option
+        orderselect.forEach((x, index) => {
+            let option = document.createElement("option");
+            option.value = x.value;
+            option.innerText = x.text;
+            if (index == 0) {
+                option.selected = true;
+            }
+            select.appendChild(option);
+        });
+        orderbyBox.appendChild(select);
+        recordBody_div.appendChild(orderbyBox);
+        //#nav-purchase>div>div>div
+        let FormResultBox1 = document.createElement("div");
+        FormResultBox1.setAttribute('class', 'FormResult');
+        let FormResultP1 = document.createElement("p");
+        FormResultBox1.appendChild(FormResultP1);
+
+        recordBody_div.appendChild(FormResultBox1);
+        recordBody.appendChild(recordBody_div);
+
+        //#nav-purchase>div>div
+        let recordBody_div2 = document.createElement("div");
+        //----表格-----
+        let trTitle = [{ class: "ProductName", title: "標題" },
+        { class: "OrderDate", title: "訂單日期" },
+        { class: "OrderID", title: "訂單號碼" },
+        { class: "UnitPrice", title: "價格" },
+        { class: "ProductClass", title: "類型" }];
+        //#nav-purchase>div>div>table
+        let table = document.createElement("table");
+        //#nav-purchase>div>div>tbody
+        let tbody = document.createElement("tbody");
+
+
+
+        tdList.forEach((orderlist, index) => {
+
+            if (index == 0) {
+                let tr = document.createElement("tr");
+                tr.setAttribute('class', 'row w-100');
+                trTitle.forEach((x, index) => {
+                    let th = document.createElement("th");
+                    th.setAttribute('class', x.class);
+                    th.innerText = x.title;
+                    tr.appendChild(th);
+                });
+                tbody.appendChild(tr);
+            }
+
+            let tr = document.createElement("tr");
+            tr.setAttribute('class', 'row w-100');
+            trTitle.forEach((title, index) => {
+                let td = document.createElement("td");
+                td.setAttribute('class', title.class);
+                if (index == 0) {
+                    let a = document.createElement("a");
+                    a.href = orderlist.href;
+                    a.innerText = orderlist.ProductName;
+                    td.appendChild(a);
+                } else {
+                    //console.log(title.class, orderlist[title.class]);
+                    td.innerText = orderlist[title.class];
+                }
+                tr.appendChild(td);
+            });
+
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        recordBody_div2.appendChild(table);
+
+        //#nav-purchase>div>div>div
+        let FormResultBox2 = document.createElement("div");
+        FormResultBox2.setAttribute('class', 'FormResult');
+        let FormResultP2 = document.createElement("p");
+        FormResultBox2.appendChild(FormResultP2);
+
+
+        FormResultP1.innerText = `第 1 － ${tdList.length} 個結果，共 ${tdList.length} 個`;
+        FormResultP2.innerText = `第 1 － ${tdList.length} 個結果，共 ${tdList.length} 個`;
+
+
+        recordBody_div2.appendChild(FormResultBox2);
+        recordBody.appendChild(recordBody_div2);
+
+        purchaseBox.appendChild(recordBody);
+    } else {
+        let em = document.createElement("em");
+        em.setAttribute('class', 'd-block py-4');
+        em.innerText = "您尚未購買任何項目。";
+        purchaseBox.appendChild(em);
+    }
+
+}
+
 
 
 

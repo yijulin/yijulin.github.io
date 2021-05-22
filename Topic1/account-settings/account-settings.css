@@ -181,6 +181,9 @@ nav{
     padding-right:5px;
     padding-left:5px;
 }
+#nav-purchase table{
+    width: 100%;
+}
 #nav-purchase table tr:nth-child(2){
     border-top: 5px solid crimson;
 }
@@ -197,7 +200,7 @@ nav{
 #nav-purchase table tr:first-child{
         display: none;
 }
-#nav-purchase table tr .orderID::before{
+#nav-purchase table tr .OrderID::before{
         content: "訂單號碼 ";
 }
 #nav-purchase .FormResult{
@@ -317,14 +320,14 @@ nav{
         display: flex;
         justify-content: space-between;
     }
-    #nav-purchase .orderTitle {
+    #nav-purchase .ProductName {
         flex: auto;
         width: 100%;
     }
-    #nav-purchase .orderPrice,
-    #nav-purchase .orderCategory,
-    #nav-purchase .orderDateTime,
-    #nav-purchase .orderID{
+    #nav-purchase .UnitPrice,
+    #nav-purchase .ProductClass,
+    #nav-purchase .OrderDate,
+    #nav-purchase .OrderID{
         flex: auto;
         width: 25%;
     }
@@ -389,19 +392,19 @@ nav{
     #nav-purchase table tr:first-child{
         display: table;
     }
-    #nav-purchase table tr .orderID::before{
+    #nav-purchase table tr .OrderID::before{
         content: "";
     }
-    #nav-purchase .orderTitle,
+    #nav-purchase .ProductName,
     #nav-purchase tr>:first-child {
         width: 50%;
     }
-    #nav-purchase .orderPrice,
-    #nav-purchase .orderCategory{
+    #nav-purchase .UnitPrice,
+    #nav-purchase .ProductClass{
         width: 10%;
     }
-    #nav-purchase .orderDateTime,
-    #nav-purchase .orderID{
+    #nav-purchase .OrderDate,
+    #nav-purchase .OrderID{
         width: 15%;
     } 
     /*=====付款資訊=====*/
