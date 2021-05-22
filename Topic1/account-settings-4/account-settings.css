@@ -142,7 +142,6 @@ nav{
 #nav-setting .form-check-label{
     padding: 5px 0 0 10px;
 }
-
 #nav-setting .d-flex .form-check{
     margin-right: 20px;
 }
@@ -155,6 +154,7 @@ nav{
     font-size: 12px;
     font-weight: 700;
 }
+
 /*=====購買紀錄=====*/
 #nav-purchase p{
     margin: 10px 0;
@@ -248,10 +248,6 @@ nav{
 }
 /*- - - -  手機  - - - -*/
 @media screen and (max-width:568px) {
-    /*=====偏好設定=====*/
-    #nav-setting fieldset .raidobox{
-        flex-direction: column;
-    }
     /* =====購買紀錄===== */
     #nav-purchase table tr{
         display: flex;
@@ -302,9 +298,7 @@ nav{
         width: auto;
         padding: 8px 30px;
     }
-    #nav-setting fieldset:first-child .raidobox{
-        flex-direction: column;
-    }
+
     /* =====購買紀錄===== */
     #nav-purchase td{
         margin: 10px 0;
