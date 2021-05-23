@@ -140,8 +140,8 @@ function showSetting() {
     let btnBox = document.createElement("div");
     btnBox.setAttribute('class', 'btn-box');
 
-    //#nav-setting>form>div>div>botton
-    let btn = document.createElement("botton");
+    //#nav-setting>form>div>div>button
+    let btn = document.createElement("button");
     btn.setAttribute('class', 'btn btn-save');
     btn.type = "submit";
     btn.innerText = "儲存";

@@ -1,19 +1,19 @@
 //===== 偏好設定與個人化 =====
 document.getElementById("nav-setting-tab").onclick = function () {
     showSetting();
-    //document.getElementById("nav-payment").innerHTML = "";
+    document.getElementById("nav-payment").innerHTML = "";
     document.getElementById("nav-purchase").innerHTML = "";
 };
 //=====  付款資訊 =====
 document.getElementById("nav-payment-tab").onclick = function () {
     showPayment();
-    //document.getElementById("nav-setting").innerHTML = "";
-    //document.getElementById("nav-purchase").innerHTML = "";
+    document.getElementById("nav-setting").innerHTML = "";
+    document.getElementById("nav-purchase").innerHTML = "";
 };
 //===== 購買紀錄 =====
 document.getElementById("nav-purchase-tab").onclick = function () {
     showPurchase();
-    //document.getElementById("nav-payment").innerHTML = "";
+    document.getElementById("nav-payment").innerHTML = "";
     document.getElementById("nav-setting").innerHTML = "";
 
 };
@@ -44,9 +44,9 @@ function showSetting() {
     function nameInput(inputId, labelText) {
         //#nav-setting>form>div>div>label
         let label_name = document.createElement("label");
-        label_name.setAttribute('for', `${inputId}`);
+        label_name.setAttribute('for', inputId);
         label_name.setAttribute('class', 'form-label');
-        label_name.innerText = `${labelText}`;
+        label_name.innerText = labelText;
         form_div_div.appendChild(label_name);
 
         //#nav-setting>form>div>div>div
@@ -114,7 +114,7 @@ function showSetting() {
             //#nav-setting>form>div>div>fieldset>div>div>input
             let inputradio = document.createElement("input");
             inputradio.setAttribute('class', 'form-check-input');
-            inputradio.setAttribute('id', `${inputId}`);
+            inputradio.setAttribute('id', inputId);
             inputradio.type = "radio";
             inputradio.name = `${inputName}`;
             inputradio.value = `${inputValue}`;
@@ -124,7 +124,7 @@ function showSetting() {
             //#nav-setting>form>div>div>fieldset>div>div>label
             let label_sexM = document.createElement("label");
             label_sexM.setAttribute('class', 'form-check-label');
-            label_sexM.setAttribute('for', `${inputId}`);
+            label_sexM.setAttribute('for', inputId);
             label_sexM.innerText = `${labelText}`;
             formcheck.appendChild(label_sexM);
 
@@ -140,8 +140,8 @@ function showSetting() {
     let btnBox = document.createElement("div");
     btnBox.setAttribute('class', 'btn-box');
 
-    //#nav-setting>form>div>div>botton
-    let btn = document.createElement("botton");
+    //#nav-setting>form>div>div>button
+    let btn = document.createElement("button");
     btn.setAttribute('class', 'btn btn-save');
     btn.setAttribute('type', 'submit');
     btn.innerText = "儲存";
@@ -157,7 +157,7 @@ function showSetting() {
 function showPayment() {
     // -------動態生成---------
     let payandbillBox = document.getElementById("nav-payment");
-    //payandbillBox.innerHTML = "";
+    payandbillBox.innerHTML = "";
 
     //#nav-payment>div
     let payandbillBox_div = document.createElement("div");
@@ -193,7 +193,7 @@ function showPayment() {
     { id: "jcb", icon: "fab fa-cc-jcb" }];
     iconList.forEach((x, index) => {
         let iconbox_i = document.createElement("i");
-        iconbox_i.setAttribute('class', `${x.icon}`);
+        iconbox_i.setAttribute('class', x.icon);
         iconbox.appendChild(iconbox_i);
     });
     paymentBox_div.appendChild(iconbox);
@@ -203,19 +203,19 @@ function showPayment() {
     //#nav-payment>div>div>form
     let paymentform = document.createElement("form");
 
-    inputInfo("CreditName", "信用卡上的姓名 *", null, "請確實輸入姓名");
-    inputInfo("CreditNumber", "信用卡號碼", 22, "不正確的信用卡長度");
-    inputInfo("SecurityCode", "安全碼", 4, "無效的 CVV/安全碼");
+    inputGenerate(paymentform, "CreditName", "信用卡上的姓名 *", null, "請確實輸入姓名");
+    inputGenerate(paymentform, "CreditNumber", "信用卡號碼", 22, "不正確的信用卡長度");
+    inputGenerate(paymentform, "SecurityCode", "安全碼", 4, "無效的 CVV/安全碼");
 
     //<!-- is-invalid 輸入格式錯誤時加這個class-->
-    function inputInfo(inputId, labelText, inputmaxlength, Feedback) {
+    function inputGenerate(fatherBox, inputId, labelText, inputmaxlength, Feedback) {
         //#nav-payment>div>div>form>div
         let inputBox = document.createElement("div");
         inputBox.setAttribute('class', `${inputId}-box`);
 
         //#nav-payment>div>div>form>div>label
         let label = document.createElement("label");
-        label.setAttribute('for', `${inputId}`);
+        label.setAttribute('for', inputId);
         label.setAttribute('class', 'form-label');
         label.innerText = labelText;
         inputBox.appendChild(label);
@@ -259,7 +259,7 @@ function showPayment() {
             inputBox.appendChild(inputBox_div);
         }
 
-        paymentform.appendChild(inputBox);
+        fatherBox.appendChild(inputBox);
 
     }
 
@@ -291,7 +291,7 @@ function showPayment() {
     { value: 10, text: "10" },
     { value: 11, text: "11" },
     { value: 12, text: "12" }];
-    select("ExpiryDate", "月", monthList);
+    selectGenerate(datetimeBox_div, null, "ExpiryDate", "月", monthList);
     //#nav-payment>div>div>form>div>div>span
     let span = document.createElement("span");
     span.setAttribute('class', 'p-2');
@@ -306,17 +306,21 @@ function showPayment() {
         yearList.push(topush);
         nowyear++;
     }
-    select("ExpiryYear", "年", yearList);
+    selectGenerate(datetimeBox_div, null, "ExpiryYear", "年", yearList);
 
-    function select(selectId, labelText, selectList) {
+    function selectGenerate(fatherBox, divClass, selectId, labelText, selectList) {
         //#nav-payment>div>div>form>div>div>div
-        let datetimeBox_div_div = document.createElement("div");
+        let div = document.createElement("div");
+        if (divClass != null) {
+            div.setAttribute('class', divClass);
+        }
+
         //#nav-payment>div>div>form>div>div>div>label
         let label = document.createElement("label");
         label.setAttribute('class', 'form-label');
         label.setAttribute('for', selectId);
         label.innerText = labelText;
-        datetimeBox_div_div.appendChild(label);
+        div.appendChild(label);
 
         //#nav-payment>div>div>form>div>div>div>select
         let select = document.createElement("select");
@@ -331,8 +335,8 @@ function showPayment() {
             select.appendChild(option);
         });
 
-        datetimeBox_div_div.appendChild(select);
-        datetimeBox_div.appendChild(datetimeBox_div_div);
+        div.appendChild(select);
+        fatherBox.appendChild(div);
     }
 
     datetimeBox.appendChild(datetimeBox_div);
@@ -343,14 +347,14 @@ function showPayment() {
     let btnBox = document.createElement("div");
     btnBox.setAttribute('class', 'btn-box');
 
-    //#nav-payment>div>div>form>div>div>botton
-    let btnSave = document.createElement("botton");
+    //#nav-payment>div>div>form>div>div>button
+    let btnSave = document.createElement("button");
     btnSave.setAttribute('class', 'btn btn-save');
     btnSave.setAttribute('type', 'submit');
     btnSave.innerText = "儲存";
     btnBox.appendChild(btnSave);
 
-    let btnCancel = document.createElement("botton");
+    let btnCancel = document.createElement("button");
     btnCancel.setAttribute('class', 'btn btn-cancel');
     btnCancel.innerText = "取消";
     btnBox.appendChild(btnCancel);
@@ -360,23 +364,50 @@ function showPayment() {
 
     payandbillBox_div.appendChild(paymentBox);
 
-
-
-
-
-
     //----帳單資訊----
     //#nav-setting>div>div
     let billBox = document.createElement("div");
     billBox.setAttribute('class', 'bill-box');
 
-    //#nav-setting>div>div>h1
-    let h1_2 = document.createElement("h1");
-    h1_2.innerText = "付款資訊";
-    billBox.appendChild(h1_2);
+    //#nav-setting>div>div>h2
+    let h2 = document.createElement("h2");
+    h2.innerText = "帳單地址";
+    billBox.appendChild(h2);
 
+    //----表單輸入框----
+    //#nav-payment>div>div>form
+    let billform = document.createElement("form");
+    let countryList = [{ value: "TW", text: "台灣" },
+    { value: "TW", text: "台灣" },
+    { value: "TW", text: "台灣" },
+    { value: "TW", text: "台灣" },
+    { value: "TW", text: "台灣" }];
+    selectGenerate(billform, "BillCountry-box", "BillCountry", "國家/地區", countryList);
+    inputGenerate(billform, "BillCity", "城市", null, null);
+    inputGenerate(billform, "BillAddress", "地址", null, null);
+    inputGenerate(billform, "PostalCode", "郵遞區號", null, null);
+    inputGenerate(billform, "BillPhone", "電話號碼", null, null);
+
+    //----按鈕----
+    //#nav-payment>div>div>form>div>div
+    let btnBox2 = document.createElement("div");
+    btnBox2.setAttribute('class', 'btn-box');
+
+    //#nav-payment>div>div>form>div>div>button
+    let btnSave2 = document.createElement("button");
+    btnSave2.setAttribute('class', 'btn btn-save');
+    btnSave2.setAttribute('type', 'submit');
+    btnSave2.innerText = "儲存";
+    btnBox2.appendChild(btnSave2);
+
+    let btnCancel2 = document.createElement("button");
+    btnCancel2.setAttribute('class', 'btn btn-cancel');
+    btnCancel2.innerText = "取消";
+    btnBox2.appendChild(btnCancel2);
+    billform.appendChild(btnBox2);
+
+    billBox.appendChild(billform);
     payandbillBox_div.appendChild(billBox);
-
     payandbillBox.appendChild(payandbillBox_div);
 }
 
