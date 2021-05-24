@@ -7,6 +7,9 @@ a,
 a:hover {
     color: black;
 }
+p{
+    font-size: 14px;
+}
 h1,h2{
     font-size: 18px;
 }
@@ -160,7 +163,6 @@ nav{
 /*=====購買紀錄=====*/
 #nav-purchase p{
     margin: 10px 0;
-    font-size: 14px;
 }
 #nav-purchase p>a{
     font-style: italic;
@@ -220,7 +222,9 @@ nav{
 #nav-payment>div>div {
     margin-bottom: 20px;
 }
-
+#nav-payment .fab{
+    padding: 0 2px;
+}
 #nav-payment label{
     font-size: 12px;
     font-weight: 700;
