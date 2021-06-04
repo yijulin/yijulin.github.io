@@ -1,0 +1,678 @@
+.container-xl {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .row {
+            padding: 0;
+        }
+
+        .big-box {
+            width: 100%;
+            display: flex;
+            margin: auto;
+        }
+
+        .title-imgbox {
+            background-size: 100%;
+            display: flex;
+        }
+
+        /* 第一個區塊的大圖片箱子   */
+        .title-imgbox-one {
+            width: 66.7%;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        .title-imgbox-one img {
+            width: 99.5%;
+
+
+        }
+
+        .title-imgbox-one img:nth-of-type(2) {
+            width: 99.5%;
+            position: absolute;
+            /* 絕對定位鎖定圖片 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+
+
+
+        /* 第二個區塊的大圖片箱子   */
+        .title-imgbox-two {
+            width: 33.3%;
+            background-size: cover;
+
+        }
+
+        .title-imgbox-two img {
+            width: 99%;
+        }
+
+
+
+
+        /* 幻燈片區塊 */
+        .home-page {
+            background-color: #ffffff;
+            width: 100%;
+            margin: auto;
+            /* margin-bottom: 100px; */
+            margin-top: 20px;
+            padding: 20px 20px 30px;
+            border-bottom: #595959 1px solid;
+        }
+
+        /* 上方電子書到即時熱門 檢視全部 */
+        .home-page .region .Slideshow-badge-box>span {
+            background-color: #006265;
+            border-radius: 3px;
+            padding: 3px 6px;
+            color: #fff;
+        }
+
+        /*即時熱門榜 檢視全部  */
+        .Slideshow-header-box-group {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .home-page .region .Slideshow-header-box-group a {
+            display: block;
+            font-size: 1.2rem;
+            /* vertical-align: baseline; */
+            color: #000;
+            margin: auto;
+            text-align: end;
+            right: 5px;
+            width: 40%;
+        }
+
+
+        .home-page .region .Slideshow-header-box {
+            display: flex;
+            width: 60%;
+        }
+
+        .home-page .region .Slideshow-header-box h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            vertical-align: baseline;
+
+        }
+
+        .home-page .region .Slideshow-header-box h2>span {
+            font-weight: 400;
+            color: #000;
+        }
+
+        /* 幻燈片區塊 */
+        .owl-carousel {
+            cursor: pointer;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        /* 幻燈片圖片 */
+        .owl-carousel .item .item-img-box {
+
+            display: flex;
+            height: 220px;
+            width: 140px;
+            margin: auto;
+            flex-direction: column;
+        }
+
+        .owl-carousel .item .item-img-box img {
+            height: 200px;
+            width: 140px;
+            object-fit: contain;
+            object-position: center bottom;
+            border: 0;
+
+        }
+
+        /* 幻燈片文字 */
+        .book-box {
+            display: block;
+            margin: auto;
+            display: flex;
+            width: 140px;
+            margin: auto;
+            flex-direction: column;
+        }
+
+        /* 幻燈片的按鈕 新增至***** */
+        .book-box-button {
+            height: 70px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            cursor: pointer;
+            /* 改變鼠標的形狀 */
+            position: relative;
+
+        }
+
+        .book-box-button button {
+            width: 100%;
+            color: #fff;
+            background-color: #595959;
+            border-width: 3px #595959;
+            border-style: solid;
+            border-radius: 0;
+            min-height: 35px;
+            min-width: 70px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .book-box-button button:hover {
+            transition: background-color .2s, color .2s;
+            color: #595959;
+            background-color: #fff;
+        }
+
+        /* 今日推薦 */
+        .home-page-today {
+            background-color: #ffffff;
+            width: 100%;
+            margin: auto;
+            margin-bottom: 50px;
+            margin-top: 20px;
+            padding: 20px 20px 30px;
+            /* border-bottom: #595959 1px solid; */
+            box-sizing: border-box;
+            background-color: #ffffff;
+            padding: 2rem;
+            /* position: relative; */
+
+        }
+
+        .home-page-today-box {
+            width: 100%;
+            display: table;
+            padding: 3rem;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            background-image: url(https://kbstatic1-a.akamaihd.net/1.0.0.936/Images/backgrounds/prism-background.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            overflow: hidden;
+            background-repeat: no-repeat;
+        }
+
+        .home-page-today-box a {
+            color: black;
+            text-decoration: underline;
+        }
+
+
+
+        .home-page-today-graphic {
+            padding-right: 35px;
+        }
+
+        .home-page-today-img {
+            width: 30%;
+            display: table-cell;
+            padding: 0 3rem 0 0;
+        }
+
+
+
+
+        .home-page-today-text {
+            width: 50%;
+            padding: 0 3rem 0 0;
+            vertical-align: top;
+            display: table-cell;
+            position: relative;
+        }
+
+        .home-page-today-text h3 {
+            font-size: 2rem;
+        }
+
+        .home-page-today-text p {
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .home-page-today-text a {
+            text-decoration: none;
+        }
+
+        .home-page-today-Snippet-one p {
+            font-size: 1.8rem;
+            word-break: break-all;
+        }
+
+        .home-page-today-Snippet-two {
+            word-break: break-all;
+            color: #595959;
+        }
+
+        .home-page-today-Snippet-three {
+            word-break: break-all;
+
+        }
+
+        .home-page-today-Snippet-four {
+            word-break: break-all;
+            color: #595959;
+        }
+
+        /* 右側欄位 */
+        .home-page-today-shop {
+            display: table-cell;
+            vertical-align: top;
+            padding-left: 3rem;
+            border-left: 1px solid #ccc;
+            text-align: center;
+            position: relative;
+        }
+
+        .home-page-today-shop-box-top {
+            text-align: start;
+        }
+
+        .home-page-today-shop-box-top a {
+            color: #bf0000;
+        }
+
+        .home-page-today-shop-box-bottom {
+            bottom: 0%;
+            right: 0;
+            position: absolute;
+            width: 150px;
+        }
+
+        .home-page-today-shop-box-bottom a {
+            text-decoration: none;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .home-page-today-shop-box-bottom p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: start;
+            line-height: 1.8rem;
+        }
+
+        .shopadd {
+            margin: 10px 0;
+        }
+
+        .shopadd {
+            font-style: normal;
+            font-size: 1.2rem;
+            text-align: center;
+            background: 0 0;
+            border-width: 3px;
+            border-style: solid;
+            border-radius: 0;
+            display: inline-block;
+            min-height: 35px;
+            min-width: 70px;
+            padding: 5px 7px;
+            outline: 0;
+            cursor: pointer;
+            background-color: #bf0000;
+            color: #fff;
+            border-color: #bf0000;
+            font-weight: 700;
+            display: block;
+            margin-top: 0;
+        }
+
+        /* 橫排大版廣告 */
+        .home-page-ad {
+            background-color: #ffffff;
+            width: 100%;
+            margin: auto;
+            /* margin-bottom: 200px; */
+            margin-top: 20px;
+            /* padding: 20px 20px 30px; */
+            /* border-bottom: #595959 1px solid; */
+            box-sizing: border-box;
+            background-color: #ffffff;
+            /* padding: 2rem; */
+            /* position: relative; */
+            /* margin-bottom: 50px; */
+        }
+
+        .home-page-ad-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* padding-bottom: 5%; */
+            width: 100%;
+            height: auto;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 350px;
+        }
+
+        .home-page-ad-box-img img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+        }
+
+
+
+        /* .home-page-ad-box-img img:nth-of-type(2) {
+            width: 100%;
+        } 
+        */
+        /* 
+        .home-page-ad-box-img span {
+            font-size: 2.2rem;
+            color: #ffffff;
+            display: none;
+        }
+
+        .home-page-ad-box-img span:nth-child(1) {
+            position: absolute;
+             絕對定位後置中的辦法 
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .home-page-ad-box-img span:nth-child(2) {
+            position: absolute;
+             絕對定位後置中的辦法 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+         */
+
+
+
+
+
+        /* 
+        background-image:
+                url(http://kbmerch1-a.akamaihd.net/magento/Banners/2021/TW/20210501-MayThemePromo1-K10505/hma-desktop.jpg);
+ url(http://kbmerch1-a.akamaihd.net/magento/Banners/2021/TW/20210501-MayThemePromo1-K10505/hma-desktop.svg) */
+
+
+
+
+
+
+
+        @media only screen and (max-width: 960px) {
+            .big-box {
+                width: 100%;
+
+                display: flex;
+                margin: auto;
+            }
+
+            .title-imgbox {
+                width: 100%;
+                height: 50%;
+                display: flex;
+
+            }
+
+            /* 控制整個區塊 */
+
+            .title-imgbox {
+                background-size: 100% 99%;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 auto auto auto;
+            }
+
+            /* 第一個區塊的大圖片箱子   */
+            .title-imgbox-one {
+                margin: auto;
+                width: 100%;
+                background-size: cover;
+
+            }
+
+            .title-imgbox-one img {
+                width: 100%;
+                cursor: pointer;
+                margin: auto;
+            }
+
+            /* 第二個區塊的大圖片箱子   */
+            .title-imgbox-two {
+                display: flex;
+                width: 100%;
+                background-size: cover;
+                margin: auto;
+            }
+
+            .title-imgbox-two img {
+                width: 100%;
+                cursor: pointer;
+                box-sizing: border-box;
+                padding: 0.5%;
+            }
+
+
+            /*即時熱門榜 檢視全部  */
+            .home-page .region .Slideshow-header-box {
+                display: block;
+                width: 100%;
+            }
+
+            .home-page .region .Slideshow-header-box h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0;
+                vertical-align: baseline;
+
+            }
+
+            .home-page .region .Slideshow-header-box a {
+                font-size: 1.2rem;
+                vertical-align: baseline;
+                color: #000;
+                margin-left: 74%;
+            }
+
+            .home-page .region .Slideshow-header-box h2>span {
+                font-weight: 400;
+                color: #000;
+            }
+
+
+
+            /* 今日推薦區塊 */
+
+            .home-page-today-shop {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding-top: 20px;
+                padding-left: 0px;
+                justify-content: center;
+                border-left: none;
+                /* border-top: 1px solid #ccc; */
+
+            }
+
+            .home-page-today-shop-box-top {
+                display: none;
+            }
+
+            .home-page-today-shop-box-bottom {
+
+                bottom: -50%;
+                width: 100%;
+            }
+
+            .home-page-today-Snippet p {
+                font-size: 1.5rem;
+                word-break: break-all;
+            }
+
+            .home-page-today-img img {
+                width: 100%;
+            }
+
+            .shopadd {
+                width: 40%;
+            }
+
+
+
+        }
+
+        @media only screen and (max-width: 576px) {
+            .home-page-today {
+                width: 85%;
+            }
+
+            .home-page-today-graphic {
+                padding-right: 0;
+            }
+
+            .home-page-today-shop {
+
+                border-left: 0 solid #ccc;
+            }
+
+            .big-box {
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+
+            .title-imgbox {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                background-size: cover;
+            }
+
+            /* 控制整個區塊 */
+
+            .title-imgbox {
+                background-size: 66.7% 99%;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 auto auto auto;
+            }
+
+            /* 第一個區塊的大圖片箱子   */
+            .title-imgbox-one {
+                margin: auto auto auto auto;
+                width: 100%;
+                background-size: cover;
+            }
+
+            .title-imgbox-one img {
+                width: 100%;
+                cursor: pointer;
+
+
+
+            }
+
+            /* 第二個區塊的大圖片箱子   */
+            .title-imgbox-two {
+                display: none;
+            }
+
+            /*即時熱門榜 檢視全部  */
+            .home-page .region .Slideshow-header-box {
+                display: block;
+                width: 100%;
+            }
+
+            .home-page .region .Slideshow-header-box h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0;
+                vertical-align: baseline;
+
+            }
+
+            .home-page .region .Slideshow-header-box a {
+                font-size: 1.2rem;
+                vertical-align: baseline;
+                color: #000;
+                margin-left: 26%;
+            }
+
+            .home-page .region .Slideshow-header-box h2>span {
+                font-weight: 400;
+                color: #000;
+            }
+
+            .home-page-today-left {
+                padding: 0;
+            }
+
+
+            /* 今日推薦區塊 */
+            .home-page-today-box {
+
+                width: 100%;
+                display: flex;
+
+            }
+
+            .home-page-today-img,
+            .home-page-today-text {
+                display: inline;
+                text-align: center;
+            }
+
+            .home-page-today-img {
+                width: 30%;
+                display: table-cell;
+                padding: 0 0 0 0;
+            }
+
+            .home-page-today-Snippet {
+                display: none;
+            }
+
+            /* .home-page-today-text {
+                margin-top: 20px;
+            } */
+
+            .home-page-today-img {
+                width: 50%;
+                text-align: center;
+            }
+
+            .home-page-today-shop-box-bottom {
+                width: 100%;
+                height: 300%;
+            }
+
+            .home-page-today-shop-box-bottom img:nth-of-type(2) {
+                display: none;
+            }
+
+            /* 廣告 */
+            .home-page-ad-box-img img {
+                width: 100%;
+                height: 8rem;
+                position: absolute;
+            }
+        }

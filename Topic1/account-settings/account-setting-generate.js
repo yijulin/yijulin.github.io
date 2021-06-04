@@ -1,20 +1,20 @@
 //===== 偏好設定與個人化 =====
 document.getElementById("nav-setting-tab").onclick = function () {
     showSetting();
-    document.getElementById("nav-payment").innerHTML = "";
-    document.getElementById("nav-purchase").innerHTML = "";
+    // document.getElementById("nav-payment").innerHTML = "";
+    // document.getElementById("nav-purchase").innerHTML = "";
 };
 //=====  付款資訊 =====
 document.getElementById("nav-payment-tab").onclick = function () {
     showPayment();
-    document.getElementById("nav-setting").innerHTML = "";
-    document.getElementById("nav-purchase").innerHTML = "";
+    // document.getElementById("nav-setting").innerHTML = "";
+    // document.getElementById("nav-purchase").innerHTML = "";
 };
 //===== 購買紀錄 =====
 document.getElementById("nav-purchase-tab").onclick = function () {
     showPurchase();
-    document.getElementById("nav-payment").innerHTML = "";
-    document.getElementById("nav-setting").innerHTML = "";
+    // document.getElementById("nav-payment").innerHTML = "";
+    // document.getElementById("nav-setting").innerHTML = "";
 
 };
 

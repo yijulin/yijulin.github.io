@@ -1,10 +1,7 @@
-body {
-        font-size: 15px;
-    }
-
 a,
 a:hover {
     color: black;
+    text-decoration: underline;
 }
 
 .box-width {
@@ -206,4 +203,71 @@ nav>p>a>span{
     .box-width {
         width: 1100px;
     }
+}
+
+/* bootstrap5 */
+body {
+        font-size: 15px;
+        margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    }
+.d-none {
+    display: none!important;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.fw-bold {
+    font-weight: 700!important;
+}
+.fs-4 {
+    font-size: calc(1.275rem + .3vw)!important;
+}
+[type=button]:not(:disabled), 
+[type=reset]:not(:disabled), 
+[type=submit]:not(:disabled), 
+button:not(:disabled) {
+    cursor: pointer;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button {
+    border-radius: 0;
+}
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+}
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: .5rem;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    float: left;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: var(--bs-breadcrumb-divider, "/");
+}
+.breadcrumb-item.active {
+    color: #6c757d;
 }
