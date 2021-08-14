@@ -126,7 +126,7 @@
 
             /*左圖*/
             let pic = document.getElementById("_pic"); //
-            pic.innerHTML = `<img src="./img/${type}.png" class="w-100 py-5">`;
+            pic.innerHTML = `<img src="./img/${type.toLowerCase()}.png" class="w-100 py-5">`;
 
             /*右資訊*/
             let infobox = document.getElementById("_info"); //
@@ -159,7 +159,7 @@
                 button.setAttribute('class', ' btn btn-light d-flex flex-column align-items-center col-5 py-3 m-2')
 
                 button.onclick = function () {
-                    pic.innerHTML = `<img src="./img/${type}-${colors.color}.png" class="w-100">`;
+                    pic.innerHTML = `<img src="./img/${type.toLowerCase()}-${colors.color}.png" class="w-100">`;
 
                 }
 
