@@ -126,14 +126,14 @@
 
 
     <script type='module'>
-        import { $g } from '../../InclassPractice/JavaScriptExercise/Modules/helpers.js';
+        import { qselect } from '/tool/js/helpers.js';
         //1. 準備好資料陣列
         //2. 建立Card template 樣板
         //3. 複製樣板，並設定資料
         //4. 將複製並設定好的樣板加入DOM中
 
         let LOLArray = [];
-        const url = "https://raw.githubusercontent.com/yijulin/yijulin.github.io/main/HomeWork/HW0419/LOL.json";
+        const url = "https://raw.githubusercontent.com/yijulin/yijulin.github.io/main/Frontend-JS/CardList/LOL.json";
         //const url = "LOL.json";
 
 
@@ -146,7 +146,7 @@
                     show();
                 })
                 .catch(ex => {
-                    $g("body").innerHTML = ex;
+                    qselect("body").innerHTML = ex;
                 })
                 .finally(() => {
 
@@ -154,9 +154,9 @@
 
         };
 
-        let row = $g(".row");
+        let row = qselect(".row");
         function show() {
-            let card = $g("#cardLOL");
+            let card = qselect("#cardLOL");
 
             LOLArray.forEach((item, index) => {
 
