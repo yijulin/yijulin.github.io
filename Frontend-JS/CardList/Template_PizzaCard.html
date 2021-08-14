@@ -111,14 +111,14 @@
 
 
     <script type='module'>
-        import { $g } from '../../InclassPractice/JavaScriptExercise/Modules/helpers.js';
+        import { qselect } from '/tool/js/helpers.js';
         //1. 準備好資料陣列
         //2. 建立Card template 樣板
         //3. 複製樣板，並設定資料
         //4. 將複製並設定好的樣板加入DOM中
 
         var pizzaArray = [];
-        const url = "https://raw.githubusercontent.com/yijulin/yijulin.github.io/main/HomeWork/HW0419/Pizza.json";
+        const url = "https://raw.githubusercontent.com/yijulin/yijulin.github.io/main/Frontend-JS/CardList/Pizza.json";
         //const url = "Pizza.json";
 
 
@@ -130,7 +130,7 @@
                     show();
                 })
                 .catch(ex => {
-                    $g("body").innerHTML = ex;
+                    qselect("body").innerHTML = ex;
                 })
                 .finally(() => {
 
@@ -138,9 +138,9 @@
 
         };
 
-        let row = $g(".row");
+        let row = qselect(".row");
         function show() {
-            let card = $g("#cardPizza");
+            let card = qselect("#cardPizza");
 
             pizzaArray.forEach((item, index) => {
                 let cloneContent = card.content.cloneNode(true);
@@ -163,8 +163,6 @@
                 row.append(cloneContent);
 
             });
-
-
 
         }
 
